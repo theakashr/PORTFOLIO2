@@ -67,7 +67,7 @@ const Navbar = () => {
           onClick={(e) => handleNavClick(e, 'home')}
           className="font-orbitron font-extrabold text-xl tracking-wider bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]"
         >
-          AKASH<span className="text-white text-base">.R</span>
+          AKASH<span className="text-gray-900 text-base">.R</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -80,7 +80,7 @@ const Navbar = () => {
               className={`relative px-4 py-2 font-orbitron text-xs tracking-widest uppercase transition-all duration-300 ${
                 activeSection === item.id 
                   ? 'text-cyber-accent font-bold' 
-                  : 'text-gray-400 hover:text-white'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               {item.label}
@@ -98,7 +98,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-gray-300 hover:text-cyber-accent focus:outline-none transition-colors"
+          className="md:hidden p-2 text-gray-600 hover:text-cyber-accent focus:outline-none transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -123,7 +123,7 @@ const Navbar = () => {
                   className={`text-xs uppercase tracking-widest py-2 transition-all ${
                     activeSection === item.id 
                       ? 'text-cyber-accent font-bold text-shadow-glow' 
-                      : 'text-gray-400 hover:text-white'
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
                   {item.label}

@@ -23,8 +23,8 @@ const Skills = () => {
       icon: <FiLayers className="text-cyber-neonPurple" />,
       skills: [
         { name: 'Firebase', level: 75, icon: <SiFirebase className="text-[#FFCA28]" /> },
-        { name: 'GitHub', level: 85, icon: <SiGithub className="text-white" /> },
-        { name: 'Vercel', level: 80, icon: <SiVercel className="text-white" /> },
+        { name: 'GitHub', level: 85, icon: <SiGithub className="text-gray-900" /> },
+        { name: 'Vercel', level: 80, icon: <SiVercel className="text-gray-900" /> },
       ]
     },
     {
@@ -59,7 +59,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 px-6 relative overflow-hidden bg-cyber-darkGray/30">
+    <section id="skills" className="py-24 px-6 relative overflow-hidden bg-gray-50">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-[40%] left-[-10%] w-[350px] h-[350px] rounded-full bg-cyber-accent glow-orb opacity-10 -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-cyber-neonPurple glow-orb opacity-10 -z-10" />
@@ -75,7 +75,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             TECHNICAL <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">CAPABILITIES</span>
           </motion.h2>
@@ -104,7 +104,7 @@ const Skills = () => {
               {/* Card headers */}
               <div className="flex items-center gap-3 border-b border-cyber-accent/10 pb-4">
                 <span className="text-xl">{category.icon}</span>
-                <h3 className="font-orbitron font-bold text-sm tracking-widest text-white uppercase">
+                <h3 className="font-orbitron font-bold text-sm tracking-widest text-gray-900 uppercase">
                   {category.title}
                 </h3>
               </div>
@@ -114,7 +114,7 @@ const Skills = () => {
                 {category.skills.map((skill) => (
                   <div key={skill.name} className="flex flex-col gap-1.5 text-left">
                     <div className="flex justify-between items-center text-xs">
-                      <div className="flex items-center gap-2 text-gray-300 group-hover:text-white transition-colors">
+                      <div className="flex items-center gap-2 text-gray-600 group-hover:text-gray-900 transition-colors">
                         {skill.icon && <span className="text-base shrink-0">{skill.icon}</span>}
                         <span className="font-inter font-medium">{skill.name}</span>
                       </div>
@@ -124,7 +124,7 @@ const Skills = () => {
                           {skill.badge}
                         </span>
                       ) : (
-                        <span className="font-mono text-gray-500">{skill.level}%</span>
+                        <span className="font-mono text-gray-600">{skill.level}%</span>
                       )}
                     </div>
 

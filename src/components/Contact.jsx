@@ -49,7 +49,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden bg-cyber-darkGray/10">
+    <section id="contact" className="py-24 px-6 relative overflow-hidden bg-gray-50">
       {/* Decorative Orbs */}
       <div className="absolute top-[40%] right-[-10%] w-[320px] h-[320px] rounded-full bg-cyber-accent glow-orb opacity-10 -z-10" />
       <div className="absolute bottom-[10%] left-[-10%] w-[320px] h-[320px] rounded-full bg-cyber-neonPurple glow-orb opacity-10 -z-10" />
@@ -62,7 +62,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             TRANSMIT <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">MESSAGE</span>
           </motion.h2>
@@ -74,28 +74,28 @@ const Contact = () => {
           {/* Info & Socials Sidebar */}
           <div className="lg:col-span-5 flex flex-col justify-between text-left gap-8">
             <div className="flex flex-col gap-6">
-              <h3 className="font-orbitron font-extrabold text-xl text-white tracking-widest uppercase">
+              <h3 className="font-orbitron font-extrabold text-xl text-gray-900 tracking-widest uppercase">
                 GET IN TOUCH
               </h3>
-              <p className="font-inter text-sm sm:text-base text-gray-400 leading-relaxed">
+              <p className="font-inter text-sm sm:text-base text-gray-600 leading-relaxed">
                 Whether you have a project idea, academic inquiry, internship opportunities, or just want to talk tech—transmit a message or connect through my social nodes.
               </p>
 
               <div className="flex flex-col gap-4 mt-4 font-orbitron text-xs tracking-wider">
                 <div className="flex items-center gap-3">
                   <FiMail className="text-cyber-accent text-lg" />
-                  <span className="text-gray-450 hover:text-white transition-colors">akash.r.biet@gmail.com</span>
+                  <span className="text-gray-600 hover:text-gray-900 transition-colors">akash.r.biet@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyber-accent" />
-                  <span className="text-gray-500 uppercase">BIET DAVANAGERE, KARNATAKA, INDIA</span>
+                  <span className="text-gray-600 uppercase">BIET DAVANAGERE, KARNATAKA, INDIA</span>
                 </div>
               </div>
             </div>
 
             {/* Social Grid */}
             <div className="flex flex-col gap-4">
-              <h4 className="font-orbitron text-xs font-bold text-gray-500 tracking-widest uppercase text-left">
+              <h4 className="font-orbitron text-xs font-bold text-gray-600 tracking-widest uppercase text-left">
                 Network Links
               </h4>
               <div className="flex gap-4">
@@ -107,7 +107,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.15 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-12 h-12 rounded-xl bg-cyber-darkGray/60 border border-cyber-accent/15 flex items-center justify-center text-gray-400 transition-all duration-300 ${social.color}`}
+                    className={`w-12 h-12 rounded-xl bg-white border border-cyber-accent/15 flex items-center justify-center text-gray-600 transition-all duration-300 ${social.color}`}
                     title={social.name}
                   >
                     {social.icon}
@@ -132,7 +132,7 @@ const Contact = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 rounded-2xl bg-cyber-bg/95 z-20 flex flex-col items-center justify-center p-6 text-center"
+                    className="absolute inset-0 rounded-2xl bg-white/95 z-20 flex flex-col items-center justify-center p-6 text-center"
                   >
                     <motion.div
                       initial={{ scale: 0.7 }}
@@ -141,10 +141,10 @@ const Contact = () => {
                       className="text-cyber-accent flex flex-col items-center gap-4"
                     >
                       <FiCheckCircle size={56} className="animate-pulse shadow-glow-cyan" />
-                      <h4 className="font-orbitron font-extrabold text-lg tracking-wider text-white">
+                      <h4 className="font-orbitron font-extrabold text-lg tracking-wider text-gray-900">
                         TRANSMISSION SECURED
                       </h4>
-                      <p className="font-mono text-xs text-gray-400 max-w-sm">
+                      <p className="font-mono text-xs text-gray-600 max-w-sm">
                         &gt; Message packet encrypted.<br />
                         &gt; Decrypted & routed successfully.<br />
                         &gt; Expected reply: within 48 cycles.
@@ -158,7 +158,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10 text-left">
                 {/* Name */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="font-orbitron text-[10px] tracking-widest text-gray-500 uppercase font-bold">
+                  <label htmlFor="name" className="font-orbitron text-[10px] tracking-widest text-gray-600 uppercase font-bold">
                     Identifier (Name)
                   </label>
                   <input
@@ -169,13 +169,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. John Doe"
-                    className="w-full px-4 py-3 bg-cyber-darkGray/50 border border-cyber-accent/15 rounded-lg text-white font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all"
+                    className="w-full px-4 py-3 bg-white border border-cyber-accent/15 rounded-lg text-gray-900 font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="font-orbitron text-[10px] tracking-widest text-gray-500 uppercase font-bold">
+                  <label htmlFor="email" className="font-orbitron text-[10px] tracking-widest text-gray-600 uppercase font-bold">
                     Return Address (Email)
                   </label>
                   <input
@@ -186,13 +186,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. john@example.com"
-                    className="w-full px-4 py-3 bg-cyber-darkGray/50 border border-cyber-accent/15 rounded-lg text-white font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all"
+                    className="w-full px-4 py-3 bg-white border border-cyber-accent/15 rounded-lg text-gray-900 font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all"
                   />
                 </div>
 
                 {/* Message */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="font-orbitron text-[10px] tracking-widest text-gray-500 uppercase font-bold">
+                  <label htmlFor="message" className="font-orbitron text-[10px] tracking-widest text-gray-600 uppercase font-bold">
                     Payload (Message)
                   </label>
                   <textarea
@@ -203,7 +203,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Write details of the transmission..."
-                    className="w-full px-4 py-3 bg-cyber-darkGray/50 border border-cyber-accent/15 rounded-lg text-white font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all resize-none"
+                    className="w-full px-4 py-3 bg-white border border-cyber-accent/15 rounded-lg text-gray-900 font-inter text-sm focus:outline-none focus:border-cyber-accent focus:shadow-glow-cyan transition-all resize-none"
                   />
                 </div>
 

@@ -20,7 +20,7 @@ function App() {
       <LoadingScreen onComplete={() => setIsLoading(false)} />
       
       {!isLoading && (
-        <div className="relative min-h-screen text-gray-300 bg-cyber-bg font-inter overflow-hidden transition-opacity duration-700 opacity-100">
+        <div className="relative min-h-screen text-gray-900 bg-cyber-bg font-inter overflow-hidden transition-opacity duration-700 opacity-100">
           {/* Futuristic Particle Network Background */}
           <ParticlesBackground />
 

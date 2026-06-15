@@ -61,7 +61,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             ABOUT <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">ME</span>
           </motion.h2>
@@ -88,14 +88,14 @@ const About = () => {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
                 <FiBookOpen className="text-cyber-accent text-2xl" />
-                <h3 className="font-orbitron font-bold text-lg text-white tracking-wide uppercase">
+                <h3 className="font-orbitron font-bold text-lg text-gray-900 tracking-wide uppercase">
                   Academic Profile
                 </h3>
               </div>
 
-              <div className="font-inter text-gray-400 text-base leading-relaxed flex flex-col gap-4 text-left">
+              <div className="font-inter text-gray-600 text-base leading-relaxed flex flex-col gap-4 text-left">
                 <p>
-                  I am a first-year <span className="text-white font-semibold">Computer Science Engineering</span> student at <span className="text-cyber-accent font-semibold">Bapuji Institute of Engineering and Technology (BIET), Davanagere</span>. I have dedicated my early academic journey to master engineering fundamentals while aggressively diving into modern tech stacks.
+                  I am a first-year <span className="text-gray-900 font-semibold">Computer Science Engineering</span> student at <span className="text-cyber-accent font-semibold">Bapuji Institute of Engineering and Technology (BIET), Davanagere</span>. I have dedicated my early academic journey to master engineering fundamentals while aggressively diving into modern tech stacks.
                 </p>
                 <p>
                   With a deep curiosity for computing, I began exploring web technologies and intelligent agents early. Currently, I am learning full-stack development and training models to solve practical issues.
@@ -110,15 +110,15 @@ const About = () => {
               <div className="flex items-start gap-3 text-left">
                 <FiCpu className="text-cyber-accent text-lg mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-orbitron text-xs font-bold text-white tracking-widest uppercase">Focus Areas</h4>
-                  <p className="font-inter text-xs text-gray-400 mt-1">Web UI/UX, AI Integrations, Algorithm Optimization</p>
+                  <h4 className="font-orbitron text-xs font-bold text-gray-900 tracking-widest uppercase">Focus Areas</h4>
+                  <p className="font-inter text-xs text-gray-600 mt-1">Web UI/UX, AI Integrations, Algorithm Optimization</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-left">
                 <FiCode className="text-cyber-neonPurple text-lg mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-orbitron text-xs font-bold text-white tracking-widest uppercase">Methodology</h4>
-                  <p className="font-inter text-xs text-gray-400 mt-1">Modular components, SEO compliance, dry coding principles</p>
+                  <h4 className="font-orbitron text-xs font-bold text-gray-900 tracking-widest uppercase">Methodology</h4>
+                  <p className="font-inter text-xs text-gray-600 mt-1">Modular components, SEO compliance, dry coding principles</p>
                 </div>
               </div>
             </div>
@@ -134,38 +134,38 @@ const About = () => {
             >
               {/* Stat 1 */}
               <div className="glass-card rounded-xl border border-cyber-accent/15 p-5 text-center flex flex-col items-center justify-center min-h-[120px] hover:border-cyber-accent/40 transition-colors duration-300">
-                <h4 className="font-orbitron text-gray-400 text-[10px] tracking-widest uppercase font-semibold">EDUCATION</h4>
-                <div className="font-orbitron font-extrabold text-3xl text-white mt-1 text-glow-cyan">
+                <h4 className="font-orbitron text-gray-600 text-[10px] tracking-widest uppercase font-semibold">EDUCATION</h4>
+                <div className="font-orbitron font-extrabold text-3xl text-gray-900 mt-1 text-glow-cyan">
                   <CountUp to="1" suffix="st Year" />
                 </div>
-                <p className="font-inter text-[10px] text-gray-500 mt-1 uppercase">CSE at BIET</p>
+                <p className="font-inter text-[10px] text-gray-600 mt-1 uppercase">CSE at BIET</p>
               </div>
 
               {/* Stat 2 */}
               <div className="glass-card rounded-xl border border-cyber-accent/15 p-5 text-center flex flex-col items-center justify-center min-h-[120px] hover:border-cyber-accent/40 transition-colors duration-300">
-                <h4 className="font-orbitron text-gray-400 text-[10px] tracking-widest uppercase font-semibold">LANGUAGES</h4>
-                <div className="font-orbitron font-extrabold text-3xl text-white mt-1 text-glow-purple">
+                <h4 className="font-orbitron text-gray-600 text-[10px] tracking-widest uppercase font-semibold">LANGUAGES</h4>
+                <div className="font-orbitron font-extrabold text-3xl text-gray-900 mt-1 text-glow-purple">
                   <CountUp to="3" suffix="+" />
                 </div>
-                <p className="font-inter text-[10px] text-gray-500 mt-1 uppercase">Python, C, HTML and CSS</p>
+                <p className="font-inter text-[10px] text-gray-600 mt-1 uppercase">Python, C, HTML and CSS</p>
               </div>
 
               {/* Stat 3 */}
               <div className="glass-card rounded-xl border border-cyber-accent/15 p-5 text-center flex flex-col items-center justify-center min-h-[120px] hover:border-cyber-accent/40 transition-colors duration-300">
-                <h4 className="font-orbitron text-gray-400 text-[10px] tracking-widest uppercase font-semibold">HACKERRANK</h4>
-                <div className="font-orbitron font-extrabold text-3xl text-white mt-1 text-glow-cyan">
+                <h4 className="font-orbitron text-gray-600 text-[10px] tracking-widest uppercase font-semibold">HACKERRANK</h4>
+                <div className="font-orbitron font-extrabold text-3xl text-gray-900 mt-1 text-glow-cyan">
                   <CountUp to="30" suffix="+" />
                 </div>
-                <p className="font-inter text-[10px] text-gray-500 mt-1 uppercase">Problems Solved</p>
+                <p className="font-inter text-[10px] text-gray-600 mt-1 uppercase">Problems Solved</p>
               </div>
 
               {/* Stat 4 */}
               <div className="glass-card rounded-xl border border-cyber-accent/15 p-5 text-center flex flex-col items-center justify-center min-h-[120px] hover:border-cyber-accent/40 transition-colors duration-300">
-                <h4 className="font-orbitron text-gray-400 text-[10px] tracking-widest uppercase font-semibold">PROJECTS</h4>
-                <div className="font-orbitron font-extrabold text-3xl text-white mt-1 text-glow-purple">
+                <h4 className="font-orbitron text-gray-600 text-[10px] tracking-widest uppercase font-semibold">PROJECTS</h4>
+                <div className="font-orbitron font-extrabold text-3xl text-gray-900 mt-1 text-glow-purple">
                   <CountUp to="8" suffix="+" />
                 </div>
-                <p className="font-inter text-[10px] text-gray-500 mt-1 uppercase">Built & Deployed</p>
+                <p className="font-inter text-[10px] text-gray-600 mt-1 uppercase">Built & Deployed</p>
               </div>
             </motion.div>
 
@@ -180,11 +180,11 @@ const About = () => {
 
               <div className="flex items-center gap-3 mb-4">
                 <FiTrendingUp className="text-cyber-neonPurple text-xl" />
-                <h3 className="font-orbitron font-bold text-sm text-white tracking-widest uppercase">
+                <h3 className="font-orbitron font-bold text-sm text-gray-900 tracking-widest uppercase">
                   Growth & Mindset
                 </h3>
               </div>
-              <ul className="space-y-3 font-inter text-xs text-gray-400">
+              <ul className="space-y-3 font-inter text-xs text-gray-600">
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyber-accent mt-1.5 shrink-0" />
                   <span><strong>Technology Enthusiast:</strong> Constantly keeping pace with AI engineering breakthroughs and frontend layout patterns.</span>

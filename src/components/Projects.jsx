@@ -51,7 +51,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 px-6 relative overflow-hidden bg-cyber-darkGray/20">
+    <section id="projects" className="py-24 px-6 relative overflow-hidden bg-white">
       {/* Background lights */}
       <div className="absolute top-[30%] left-[-5%] w-[350px] h-[350px] rounded-full bg-cyber-neonPurple glow-orb opacity-10 -z-10" />
       <div className="absolute bottom-[20%] right-[-5%] w-[350px] h-[350px] rounded-full bg-cyber-accent glow-orb opacity-10 -z-10" />
@@ -64,7 +64,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             FEATURED <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">PROJECTS</span>
           </motion.h2>
@@ -118,10 +118,10 @@ const Projects = () => {
 
               {/* Card Body */}
               <div className="p-6 flex flex-col gap-3 text-left flex-grow">
-                <h3 className="font-orbitron font-extrabold text-base text-white group-hover:text-cyber-accent transition-colors leading-tight">
+                <h3 className="font-orbitron font-extrabold text-base text-gray-900 group-hover:text-cyber-accent transition-colors leading-tight">
                   {project.title}
                 </h3>
-                <p className="font-inter text-xs text-gray-400 leading-relaxed flex-grow">
+                <p className="font-inter text-xs text-gray-600 leading-relaxed flex-grow">
                   {project.description}
                 </p>
               </div>
@@ -133,7 +133,7 @@ const Projects = () => {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2 px-3 rounded-lg bg-cyber-darkGray/60 border border-cyber-accent/25 hover:border-cyber-accent hover:bg-cyber-accent/10 text-gray-300 hover:text-white font-orbitron font-bold text-[10px] tracking-widest uppercase flex items-center justify-center gap-2 transition-all duration-300"
+                  className="py-2 px-3 rounded-lg bg-gray-100 border border-cyber-accent/25 hover:border-cyber-accent hover:bg-cyber-accent/10 text-gray-600 hover:text-gray-900 font-orbitron font-bold text-[10px] tracking-widest uppercase flex items-center justify-center gap-2 transition-all duration-300"
                 >
                   <FiGithub size={12} />
                   <span>GitHub</span>

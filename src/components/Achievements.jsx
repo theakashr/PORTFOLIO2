@@ -55,7 +55,7 @@ const Achievements = () => {
   };
 
   return (
-    <section id="achievements" className="py-24 px-6 relative overflow-hidden bg-cyber-darkGray/10">
+    <section id="achievements" className="py-24 px-6 relative overflow-hidden bg-white">
       {/* Decorative Orbs */}
       <div className="absolute top-[20%] left-[-8%] w-[320px] h-[320px] rounded-full bg-cyber-accent glow-orb opacity-10 -z-10" />
       <div className="absolute bottom-[20%] right-[-8%] w-[320px] h-[320px] rounded-full bg-cyber-neonPurple glow-orb opacity-10 -z-10" />
@@ -68,7 +68,7 @@ const Achievements = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             MILESTONES & <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">ACHIEVEMENTS</span>
           </motion.h2>
@@ -107,7 +107,7 @@ const Achievements = () => {
                   <div className="absolute left-4 md:left-1/2 -translate-x-[50%] z-20 flex items-center justify-center">
                     <motion.div 
                       whileHover={{ scale: 1.25 }}
-                      className="w-9 h-9 rounded-full bg-cyber-bg border border-cyber-accent flex items-center justify-center text-sm shadow-glow-cyan text-cyber-accent"
+                      className="w-9 h-9 rounded-full bg-white border border-cyber-accent flex items-center justify-center text-sm shadow-glow-cyan text-cyber-accent"
                     >
                       {item.icon}
                     </motion.div>
@@ -143,10 +143,10 @@ const Achievements = () => {
                       </span>
                     </div>
 
-                    <h3 className="font-orbitron font-extrabold text-sm sm:text-base text-white mb-2 leading-tight">
+                    <h3 className="font-orbitron font-extrabold text-sm sm:text-base text-gray-900 mb-2 leading-tight">
                       {item.title}
                     </h3>
-                    <p className="font-inter text-xs sm:text-sm text-gray-400 leading-relaxed">
+                    <p className="font-inter text-xs sm:text-sm text-gray-600 leading-relaxed">
                       {item.description}
                     </p>
                   </motion.div>

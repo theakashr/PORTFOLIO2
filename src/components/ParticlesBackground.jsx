@@ -23,7 +23,7 @@ const ParticlesBackground = () => {
         this.vx = (Math.random() - 0.5) * 0.6;
         this.vy = (Math.random() - 0.5) * 0.6;
         this.radius = Math.random() * 2 + 1;
-        this.color = Math.random() > 0.5 ? 'rgba(0, 240, 255, 0.4)' : 'rgba(188, 52, 250, 0.4)';
+        this.color = Math.random() > 0.5 ? 'rgba(2, 132, 199, 0.6)' : 'rgba(126, 34, 206, 0.6)';
       }
 
       update() {
@@ -78,8 +78,8 @@ const ParticlesBackground = () => {
             ctx.lineTo(particles[j].x, particles[j].y);
             // Gradient connection line
             const grad = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
-            grad.addColorStop(0, particles[i].color.replace('0.4', String(alpha)));
-            grad.addColorStop(1, particles[j].color.replace('0.4', String(alpha)));
+            grad.addColorStop(0, particles[i].color.replace('0.6', String(alpha)));
+            grad.addColorStop(1, particles[j].color.replace('0.6', String(alpha)));
             ctx.strokeStyle = grad;
             ctx.lineWidth = 0.8;
             ctx.stroke();
@@ -97,7 +97,7 @@ const ParticlesBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(2, 132, 199, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -109,7 +109,7 @@ const ParticlesBackground = () => {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle grid overlay
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.01)';
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.03)';
       ctx.lineWidth = 1;
       const gridSize = 60;
       for (let x = 0; x < width; x += gridSize) {

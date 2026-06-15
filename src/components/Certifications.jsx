@@ -65,7 +65,7 @@ const Certifications = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-white"
+            className="font-orbitron font-black text-3xl sm:text-4xl tracking-wider text-gray-900"
           >
             VERIFIED <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">CERTIFICATIONS</span>
           </motion.h2>
@@ -109,13 +109,13 @@ const Certifications = () => {
 
                 {/* Info block */}
                 <div className="flex flex-col gap-2">
-                  <span className="font-orbitron text-[10px] text-gray-500 tracking-wider uppercase font-semibold">
+                  <span className="font-orbitron text-[10px] text-gray-600 tracking-wider uppercase font-semibold">
                     {cert.issuer} Certification
                   </span>
-                  <h3 className="font-orbitron font-extrabold text-base text-white group-hover:text-cyber-accent transition-colors leading-tight">
+                  <h3 className="font-orbitron font-extrabold text-base text-gray-900 group-hover:text-cyber-accent transition-colors leading-tight">
                     {cert.title}
                   </h3>
-                  <span className="font-inter text-xs text-gray-400">
+                  <span className="font-inter text-xs text-gray-600">
                     Issued: {cert.issueDate}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ const Certifications = () => {
                   {cert.skills.map((skill) => (
                     <span 
                       key={skill}
-                      className="px-2 py-1 rounded-md text-[10px] font-inter bg-cyber-darkGray text-gray-400 border border-white/5"
+                      className="px-2 py-1 rounded-md text-[10px] font-inter bg-gray-100 text-gray-600 border border-gray-200"
                     >
                       {skill}
                     </span>
@@ -139,7 +139,7 @@ const Certifications = () => {
                   href={cert.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-lg bg-cyber-darkGray border border-cyber-accent/20 hover:bg-cyber-accent hover:text-cyber-bg hover:border-cyber-accent font-orbitron font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 text-cyber-accent"
+                  className="w-full py-2.5 px-4 rounded-lg bg-gray-100 border border-cyber-accent/20 hover:bg-cyber-accent hover:text-white hover:border-cyber-accent font-orbitron font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 text-cyber-accent"
                 >
                   <span>Verify Credential</span>
                   <FiExternalLink size={14} />

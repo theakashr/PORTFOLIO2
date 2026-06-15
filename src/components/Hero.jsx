@@ -88,7 +88,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="font-inter text-gray-400 font-medium tracking-wide text-lg sm:text-xl"
+              className="font-inter text-gray-600 font-medium tracking-wide text-lg sm:text-xl"
             >
               GREETINGS, I AM
             </motion.h2>
@@ -98,8 +98,8 @@ const Hero = () => {
               transition={{ delay: 0.3, type: 'spring', stiffness: 100 }}
               className="font-orbitron font-extrabold text-5xl sm:text-6xl md:text-7xl tracking-wide leading-none"
             >
-              <span className="text-white">AKASH </span>
-              <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+              <span className="text-gray-900">AKASH </span>
+              <span className="bg-gradient-to-r from-cyber-accent to-cyber-neonPurple bg-clip-text text-transparent drop-shadow-sm">
                 R
               </span>
             </motion.h1>
@@ -120,7 +120,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="font-inter text-gray-450 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed text-gray-400"
+            className="font-inter text-gray-600 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed"
           >
             Passionate about building modern web applications, AI-powered solutions, and solving real-world problems through technology.
           </motion.p>
@@ -203,7 +203,7 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span className="font-orbitron text-[10px] font-bold tracking-widest text-white">ONLINE</span>
+            <span className="font-orbitron text-[10px] font-bold tracking-widest text-gray-900">ONLINE</span>
           </div>
         </motion.div>
 

@@ -58,7 +58,7 @@ const LoadingScreen = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
-          className="fixed inset-0 bg-[#020205] z-50 flex flex-col justify-center items-center p-6 select-none font-orbitron text-cyber-accent"
+          className="fixed inset-0 bg-white z-50 flex flex-col justify-center items-center p-6 select-none font-orbitron text-cyber-accent"
         >
           <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
           
