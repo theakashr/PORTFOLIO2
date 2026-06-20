@@ -43,10 +43,10 @@ const Projects = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: 'spring', stiffness: 70, damping: 14 } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 70, damping: 14 }
     }
   };
 
@@ -57,10 +57,10 @@ const Projects = () => {
       <div className="absolute bottom-[20%] right-[-5%] w-[350px] h-[350px] rounded-full bg-cyber-accent glow-orb opacity-10 -z-10" />
 
       <div className="max-w-7xl mx-auto z-10">
-        
+
         {/* Section Heading */}
         <div className="flex flex-col items-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -72,14 +72,14 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project, idx) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={cardVariants}
@@ -93,8 +93,8 @@ const Projects = () => {
               {/* Project Top Image Block */}
               <div className="relative aspect-video w-full overflow-hidden border-b border-cyber-accent/10">
                 <div className="absolute inset-0 bg-gradient-to-t from-cyber-bg via-transparent to-transparent z-10" />
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
@@ -102,12 +102,12 @@ const Projects = () => {
                     e.target.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop";
                   }}
                 />
-                
+
                 {/* Tech tag list overlay */}
                 <div className="absolute bottom-3 left-4 right-4 z-20 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="px-2 py-0.5 rounded text-[9px] font-orbitron bg-cyber-bg/80 border border-cyber-accent/25 text-cyber-accent font-semibold uppercase tracking-wider"
                     >
                       {tag}

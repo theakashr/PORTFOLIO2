@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const logs = [
+  'INITIALIZING COGNITIVE INTERFACE...',
+  'ESTABLISHING CONNECTION TO BIET DAVANAGERE...',
+  'UPLOADING FRONTLINE STACK PROTOCOLS...',
+  'SYNCING HACKERRANK VERIFIED CREDENTIALS...',
+  'ENGAGING PORTFOLIO SHIELDS...',
+  'SYSTEM READY: HELLO AKASH R'
+];
+
 const LoadingScreen = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
   const [visible, setVisible] = useState(true);
-
-  const logs = [
-    'INITIALIZING COGNITIVE INTERFACE...',
-    'ESTABLISHING CONNECTION TO BIET DAVANAGERE...',
-    'UPLOADING FRONTLINE STACK PROTOCOLS...',
-    'SYNCING HACKERRANK VERIFIED CREDENTIALS...',
-    'ENGAGING PORTFOLIO SHIELDS...',
-    'SYSTEM READY: HELLO AKASH R'
-  ];
 
   useEffect(() => {
     // Increment progress

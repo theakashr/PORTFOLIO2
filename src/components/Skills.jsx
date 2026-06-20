@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { 
-  SiPython, SiC, SiJavascript, 
-  SiReact, SiTailwindcss, SiFirebase, SiGithub, SiVercel 
+  SiPython, SiC, SiFirebase, SiGithub, SiVercel 
 } from 'react-icons/si';
 import { FiCode, FiCpu, FiLayers } from 'react-icons/fi';
 import { FaHtml5, FaCss3Alt } from 'react-icons/fa';

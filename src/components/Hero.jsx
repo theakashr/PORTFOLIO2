@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiDownload, FiMail } from 'react-icons/fi';
 
+const words = [
+  'Computer Science Student',
+  'Frontend Developer',
+  'AI Enthusiast',
+  'Problem Solver'
+];
+
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(100);
-
-  const words = [
-    'Computer Science Student',
-    'Frontend Developer',
-    'AI Enthusiast',
-    'Problem Solver'
-  ];
 
   useEffect(() => {
     const handleType = () => {
