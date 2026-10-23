@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle2, ExternalLink } from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
@@ -23,6 +23,18 @@ export const JourneySection: React.FC = () => {
     },
     {
       type: 'HACKATHONS',
+      title: 'Hackering 2.0 — 36-Hour National Level Hackathon',
+      institution: 'RV Institute of Technology and Management (RVITM)',
+      location: 'Bengaluru, Karnataka',
+      period: 'Oct 8 — 10, 2026',
+      desc: 'Finalist with Team HACK CORE in an intensive 36-hour national hackathon organized by the Dept. of ECE & Dept. of CSE (AI/ML) at RVITM, building innovative tech solutions to address critical real-world challenges.',
+      icon: Trophy,
+      color: '#EF4444',
+      tags: ['36-Hour Hackathon', 'Team HACK CORE', 'National Hackathon', 'AI & Embedded Tech'],
+      certificateUrl: 'https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing',
+    },
+    {
+      type: 'HACKATHONS',
       title: 'Disaster Management & AI Solution Sprint',
       institution: 'College Tech Innovation Challenge',
       location: 'BIET Davanagere',
@@ -42,6 +54,42 @@ export const JourneySection: React.FC = () => {
       icon: Trophy,
       color: '#F59E0B',
       tags: ['Problem Statement Analysis', 'System Architecture', 'Team Collaboration'],
+    },
+    {
+      type: 'CERTIFICATIONS',
+      title: 'Python (Basic) Skill Certification',
+      institution: 'HackerRank',
+      location: 'Verified Online Credential',
+      period: 'Certified',
+      desc: 'Officially certified by HackerRank in core Python programming fundamentals: scalar types, control flows, data structures (lists, tuples, dicts, sets), functions, error handling, and object-oriented programming.',
+      icon: Award,
+      color: '#10B981',
+      tags: ['Python 3', 'Data Structures', 'OOP Concepts', 'HackerRank Verified'],
+      certificateUrl: 'https://www.hackerrank.com/certificates/96d7fb788ed7',
+    },
+    {
+      type: 'CERTIFICATIONS',
+      title: 'Problem Solving (Basic) Skill Certification',
+      institution: 'HackerRank',
+      location: 'Verified Online Credential',
+      period: 'Certified',
+      desc: 'Officially certified by HackerRank in computational problem solving, data structure manipulations, asymptotic time/space complexity analysis, and algorithmic reasoning.',
+      icon: Award,
+      color: '#3B82F6',
+      tags: ['Algorithms', 'Data Structures', 'Problem Solving', 'Time Complexity'],
+      certificateUrl: 'https://www.hackerrank.com/certificates/f2eaec45adec',
+    },
+    {
+      type: 'CERTIFICATIONS',
+      title: 'C# (Basic) Skill Certification',
+      institution: 'HackerRank',
+      location: 'Verified Online Credential',
+      period: 'Certified',
+      desc: 'Officially certified by HackerRank in C# language fundamentals, object-oriented programming patterns, methods, classes, and structured application development.',
+      icon: Award,
+      color: '#8B5CF6',
+      tags: ['C#', '.NET Architecture', 'OOP Principles', 'Type Systems'],
+      certificateUrl: 'https://www.hackerrank.com/certificates/bfff4fc88bf8',
     },
     {
       type: 'CERTIFICATIONS',
@@ -247,6 +295,26 @@ export const JourneySection: React.FC = () => {
                           </span>
                         ))}
                       </div>
+
+                      {item.certificateUrl && (
+                        <div className="pt-2">
+                          <a
+                            href={item.certificateUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => soundFx.playClick()}
+                            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-mono-tech uppercase font-bold tracking-wider transition-all duration-200 group cursor-pointer ${
+                              isLight
+                                ? 'bg-red-50 hover:bg-red-100/80 text-red-700 border border-red-200 hover:border-red-400 shadow-xs'
+                                : 'bg-red-950/40 hover:bg-red-900/50 text-red-200 border border-red-500/40 hover:border-red-400 shadow-md shadow-red-950/40'
+                            }`}
+                          >
+                            <Award className="w-3.5 h-3.5 text-red-500 group-hover:scale-110 transition-transform" />
+                            <span>VERIFY CERTIFICATE</span>
+                            <ExternalLink className="w-3 h-3 opacity-75 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>

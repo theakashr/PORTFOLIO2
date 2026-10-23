@@ -35,6 +35,10 @@ I am a Computer Science and Engineering student at **Bapuji Institute of Enginee
 - 🌗 **Dual Theme Engine (White / Black)**: Dedicated floating selector with instantaneous theme transitions and tailored contrast balancing.
 - 🎵 **Web Audio Ambient Synthesizer**: Custom synthesized click ticks, chime chords, and ambient audio with a quick mute toggle.
 - 💼 **Interactive Project Showcase**: Deep-dive modals for full-stack and AI projects featuring real-time architecture, tags, and source links.
+- 🏆 **Hackathons & Verified Certifications**:
+  - **Hackering 2.0 (36-Hour National Hackathon)** at RVITM, Bengaluru (Team HACK CORE).
+  - **HackerRank Certified**: Python (Basic), Problem Solving (Basic), and C# (Basic).
+  - Direct external verification links for credentials and certificate PDFs.
 - 🔒 **Private Feedback Form & Secret Owner Vault**:
   - Visitors can submit ratings (1–5 stars), reviewer roles, feedback categories, and comments.
   - Submissions are delivered privately to `akashakashr505@gmail.com`.
