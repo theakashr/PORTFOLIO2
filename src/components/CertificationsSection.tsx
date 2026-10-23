@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Award, ExternalLink, ShieldCheck, CheckCircle2, Terminal, Code2, Cpu } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Award, ExternalLink, ShieldCheck, CheckCircle2, Terminal, Code2, Cpu, Eye, FileText, X, Sparkles } from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
 
 export interface CredentialItem {
   id: string;
-  type: 'CREDLY' | 'HACKERRANK';
+  type: 'CREDLY' | 'HACKERRANK' | 'INFOSYS';
   title: string;
   issuer: string;
-  platform: 'Credly' | 'HackerRank';
+  platform: 'Credly' | 'HackerRank' | 'Infosys Springboard';
   url: string;
   badgeImage?: string;
+  certificateImage?: string;
+  pdfUrl?: string;
   icon?: React.ElementType;
   accentColor: string;
   badgeTag: string;
@@ -21,10 +23,49 @@ export interface CredentialItem {
 }
 
 export const CertificationsSection: React.FC = () => {
-  const [filter, setFilter] = useState<'ALL' | 'CREDLY' | 'HACKERRANK'>('ALL');
+  const [filter, setFilter] = useState<'ALL' | 'INFOSYS' | 'CREDLY' | 'HACKERRANK'>('ALL');
+  const [previewCert, setPreviewCert] = useState<{
+    title: string;
+    image: string;
+    pdfUrl?: string;
+    verifyUrl: string;
+    issuer: string;
+  } | null>(null);
   const { isLight } = useTheme();
 
   const credentials: CredentialItem[] = [
+    // Infosys Springboard Certifications
+    {
+      id: 'infosys-intro-ai',
+      type: 'INFOSYS',
+      title: 'Introduction to Artificial Intelligence',
+      issuer: 'Infosys Springboard',
+      platform: 'Infosys Springboard',
+      url: 'https://verify.onwingspan.com',
+      certificateImage: '/images/certificates/infosys-intro-to-ai.jpg',
+      pdfUrl: '/certificates/infosys-intro-to-ai.pdf',
+      accentColor: '#0070AD',
+      badgeTag: 'COURSE COMPLETION CERTIFICATE',
+      description:
+        'Certified completion of foundational Artificial Intelligence disciplines including knowledge representation, machine learning paradigms, search algorithms, heuristic evaluation, and ethical AI deployment.',
+      skills: ['Artificial Intelligence', 'Machine Learning', 'Search Algorithms', 'Neural Networks', 'Problem Solving', 'AI Ethics'],
+    },
+    {
+      id: 'infosys-ai-foundation',
+      type: 'INFOSYS',
+      title: 'Artificial Intelligence Foundation Certification',
+      issuer: 'Infosys Springboard',
+      platform: 'Infosys Springboard',
+      url: 'https://verify.onwingspan.com',
+      certificateImage: '/images/certificates/infosys-ai-foundation.jpg',
+      pdfUrl: '/certificates/infosys-ai-foundation.pdf',
+      accentColor: '#0070AD',
+      badgeTag: 'CERTIFICATE OF ACHIEVEMENT',
+      description:
+        'Comprehensive assessment validating deep core competency in AI architectures, supervised and unsupervised learning algorithms, model evaluation metrics, deep learning concepts, and cognitive computing systems.',
+      skills: ['AI Foundations', 'Cognitive Computing', 'Supervised Learning', 'Model Evaluation', 'Deep Learning', 'Pattern Recognition'],
+    },
+
     // Credly Badges
     {
       id: '9a396e5e-8651-4646-bb34-4acae26a3930',
@@ -54,6 +95,7 @@ export const CertificationsSection: React.FC = () => {
         'Validates hands-on capability to engineer Python scripts, perform exploratory data analysis, and execute data manipulation workflows within IBM Jupyter-based lab environments.',
       skills: ['Python', 'Data Science', 'Jupyter Labs', 'Data Analysis', 'Data Structures', 'Data Cleansing'],
     },
+
     // HackerRank Certificates
     {
       id: '96d7fb788ed7',
@@ -104,6 +146,10 @@ export const CertificationsSection: React.FC = () => {
     return item.type === filter;
   });
 
+  const infosysCount = credentials.filter((c) => c.type === 'INFOSYS').length;
+  const credlyCount = credentials.filter((c) => c.type === 'CREDLY').length;
+  const hackerrankCount = credentials.filter((c) => c.type === 'HACKERRANK').length;
+
   return (
     <section
       id="certifications"
@@ -144,15 +190,16 @@ export const CertificationsSection: React.FC = () => {
             <p className={`font-sans text-sm sm:text-base max-w-2xl mx-auto mt-2 font-medium transition-colors ${
               isLight ? 'text-zinc-600' : 'text-zinc-300'
             }`}>
-              Authentic, externally verifiable credentials issued by Google Cloud, IBM, and HackerRank.
+              Authentic, externally verifiable credentials issued by Infosys Springboard, Google Cloud, IBM, and HackerRank.
             </p>
 
             {/* Filter Pills */}
             <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
               {[
                 { id: 'ALL', label: `ALL CREDENTIALS (${credentials.length})` },
-                { id: 'CREDLY', label: 'CREDLY BADGES (2)' },
-                { id: 'HACKERRANK', label: 'HACKERRANK CERTS (3)' },
+                { id: 'INFOSYS', label: `INFOSYS SPRINGBOARD (${infosysCount})` },
+                { id: 'CREDLY', label: `CREDLY BADGES (${credlyCount})` },
+                { id: 'HACKERRANK', label: `HACKERRANK CERTS (${hackerrankCount})` },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -180,6 +227,7 @@ export const CertificationsSection: React.FC = () => {
           {filteredCredentials.map((item, idx) => {
             const Icon = item.icon || Award;
             const isCredly = item.type === 'CREDLY';
+            const isInfosys = item.type === 'INFOSYS';
 
             return (
               <motion.div
@@ -188,7 +236,7 @@ export const CertificationsSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`rounded-3xl border-[2.5px] p-6 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-300 hover:scale-[1.03] group ${
+                className={`rounded-3xl border-[2.5px] p-6 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-300 hover:scale-[1.02] group ${
                   isLight
                     ? 'bg-white border-zinc-200 hover:border-red-400 shadow-zinc-200/70'
                     : 'bg-black/85 border-white/80 hover:border-red-500 shadow-2xl'
@@ -198,7 +246,7 @@ export const CertificationsSection: React.FC = () => {
                 <div className="space-y-4">
                   {/* Badge Header Row */}
                   <div className="flex items-center justify-between">
-                    {/* Badge Image or Icon */}
+                    {/* Badge Image / Icon */}
                     {isCredly && item.badgeImage ? (
                       <div className="w-16 h-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-current/10 flex items-center justify-center p-1.5 transition-transform group-hover:scale-110 shadow-md">
                         <img
@@ -206,6 +254,10 @@ export const CertificationsSection: React.FC = () => {
                           alt={`${item.title} Badge`}
                           className="w-full h-full object-contain"
                         />
+                      </div>
+                    ) : isInfosys ? (
+                      <div className="w-14 h-14 rounded-2xl border border-sky-500/40 bg-sky-500/10 flex items-center justify-center text-[#0070AD] transition-transform group-hover:scale-110 shadow-md">
+                        <Sparkles className="w-7 h-7" />
                       </div>
                     ) : (
                       <div
@@ -230,6 +282,34 @@ export const CertificationsSection: React.FC = () => {
                       </span>
                     </div>
                   </div>
+
+                  {/* Certificate Image Thumbnail for Infosys Springboard */}
+                  {isInfosys && item.certificateImage && (
+                    <div
+                      onClick={() => {
+                        soundFx.playClick();
+                        setPreviewCert({
+                          title: item.title,
+                          image: item.certificateImage!,
+                          pdfUrl: item.pdfUrl,
+                          verifyUrl: item.url,
+                          issuer: item.issuer,
+                        });
+                      }}
+                      className="relative rounded-2xl overflow-hidden border border-current/10 group/img cursor-pointer aspect-[16/11] bg-black/5 dark:bg-black/40 shadow-inner"
+                      title="Click to zoom certificate"
+                    >
+                      <img
+                        src={item.certificateImage}
+                        alt={`${item.title} Certificate`}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 text-white p-3 text-center">
+                        <Eye className="w-6 h-6 text-white" />
+                        <span className="text-xs font-impact tracking-wider">CLICK TO EXPAND CERTIFICATE</span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Issuer & Title */}
                   <div>
@@ -268,23 +348,55 @@ export const CertificationsSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Bottom Verification Button */}
-                <div className="pt-6 mt-6 border-t border-current/10">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => soundFx.playClick()}
-                    className={`w-full py-3 px-4 rounded-xl font-impact text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 group-hover:shadow-lg cursor-pointer ${
-                      isCredly
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-blue-600/30'
-                        : 'bg-red-600 hover:bg-red-500 text-white shadow-red-600/30'
-                    }`}
-                  >
-                    <Award className="w-4 h-4" />
-                    <span>VERIFY ON {item.platform.toUpperCase()}</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                  </a>
+                {/* Bottom Verification & Actions */}
+                <div className="pt-6 mt-6 border-t border-current/10 space-y-2">
+                  {isInfosys ? (
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        onClick={() => {
+                          soundFx.playClick();
+                          setPreviewCert({
+                            title: item.title,
+                            image: item.certificateImage!,
+                            pdfUrl: item.pdfUrl,
+                            verifyUrl: item.url,
+                            issuer: item.issuer,
+                          });
+                        }}
+                        className="py-2.5 px-3 rounded-xl font-impact text-xs uppercase tracking-wider bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>PREVIEW</span>
+                      </button>
+                      <a
+                        href={item.pdfUrl || item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => soundFx.playClick()}
+                        className="py-2.5 px-3 rounded-xl font-impact text-xs uppercase tracking-wider bg-[#0070AD] hover:bg-[#005a8c] text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-md shadow-sky-900/20"
+                      >
+                        <FileText className="w-3.5 h-3.5" />
+                        <span>VIEW PDF</span>
+                        <ExternalLink className="w-3 h-3 opacity-80" />
+                      </a>
+                    </div>
+                  ) : (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => soundFx.playClick()}
+                      className={`w-full py-3 px-4 rounded-xl font-impact text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 group-hover:shadow-lg cursor-pointer ${
+                        isCredly
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-blue-600/30'
+                          : 'bg-red-600 hover:bg-red-500 text-white shadow-red-600/30'
+                      }`}
+                    >
+                      <Award className="w-4 h-4" />
+                      <span>VERIFY ON {item.platform.toUpperCase()}</span>
+                      <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                    </a>
+                  )}
                 </div>
 
               </motion.div>
@@ -300,11 +412,96 @@ export const CertificationsSection: React.FC = () => {
         }`}>
           <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
           <span>
-            All badges &amp; certificates are registered to <strong>Akash R</strong> with cryptographic proof verifiable on Credly and HackerRank.
+            All badges &amp; certificates are registered to <strong>Akash R</strong> with authentic verification via Infosys Springboard, Credly, and HackerRank.
           </span>
         </div>
 
       </div>
+
+      {/* Interactive Certificate Modal Preview */}
+      <AnimatePresence>
+        {previewCert && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md"
+            onClick={() => setPreviewCert(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className={`relative max-w-4xl w-full max-h-[92vh] overflow-hidden rounded-3xl border-[2.5px] p-5 sm:p-6 shadow-2xl flex flex-col ${
+                isLight ? 'bg-white border-zinc-300 text-zinc-900' : 'bg-[#0a0a0f] border-white/20 text-white'
+              }`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-start justify-between pb-4 border-b border-current/10">
+                <div>
+                  <span className="text-[11px] font-mono-tech uppercase tracking-wider text-red-500 font-bold block">
+                    {previewCert.issuer} &bull; OFFICIAL CERTIFICATE
+                  </span>
+                  <h3 className="font-impact text-xl sm:text-2xl uppercase tracking-wide mt-0.5">
+                    {previewCert.title}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => {
+                    soundFx.playClick();
+                    setPreviewCert(null);
+                  }}
+                  className="p-2 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Close Preview"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Certificate Image Viewer */}
+              <div className="my-4 overflow-auto rounded-2xl border border-current/10 bg-black/5 dark:bg-black/50 flex items-center justify-center p-2">
+                <img
+                  src={previewCert.image}
+                  alt={previewCert.title}
+                  className="w-full h-auto max-h-[62vh] object-contain rounded-xl shadow-lg"
+                />
+              </div>
+
+              {/* Modal Footer Actions */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <div className="flex items-center gap-2 text-xs font-mono-tech text-zinc-400">
+                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                  <span>Scan QR on certificate or verify at verify.onwingspan.com</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {previewCert.pdfUrl && (
+                    <a
+                      href={previewCert.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => soundFx.playClick()}
+                      className="px-4 py-2.5 rounded-xl text-xs font-impact uppercase tracking-wider bg-zinc-800 hover:bg-zinc-700 text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" />
+                      <span>OPEN FULL PDF</span>
+                    </a>
+                  )}
+                  <a
+                    href={previewCert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => soundFx.playClick()}
+                    className="px-4 py-2.5 rounded-xl text-xs font-impact uppercase tracking-wider bg-[#0070AD] hover:bg-[#005a8c] text-white flex items-center gap-1.5 transition-colors cursor-pointer shadow-lg shadow-sky-900/30"
+                  >
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>VERIFY ON WINGSPAN</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
