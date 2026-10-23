@@ -64,6 +64,31 @@ export const ProjectShowcase: React.FC = () => {
       ],
     },
     {
+      id: 'ai-resume-builder',
+      title: 'ResumeAI',
+      subtitle: 'ATS Resume Optimizer & AI Mock Interview Suite',
+      category: 'AI & CareerTech',
+      tagline: 'ATS-friendly resume generation, job description keyword matching, and AI mock interview simulations.',
+      description: 'An end-to-end AI career acceleration platform that crafts ATS-optimized resumes tailored to target job posts, enhances impact bullet points, and provides interactive mock interviews.',
+      longDescription: 'ResumeAI empowers job candidates to bridge the recruiter screening gap through predictive ATS scoring and AI co-pilots. Built with Next.js 16, Google Gemini AI, Supabase, and Firebase, it reverse-engineers job specifications to highlight high-yield competencies, refactors passive resume copy into quantified achievements, and simulates realistic AI voice/text mock interviews with personalized rubric evaluations.',
+      features: [
+        'ATS Compatibility Scanner analyzing job description keywords with match auditing',
+        'Gemini AI-powered bullet point enhancer and executive summary synthesizer',
+        'Interactive AI Mock Interview simulator with real-time feedback & rubric scoring',
+        'Multi-template PDF generation with real-time Supabase and Firebase profile sync'
+      ],
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Gemini AI', 'Supabase', 'Firebase', 'Zod'],
+      previewImage: '/images/projects/resume-ai.svg',
+      liveUrl: 'https://resume-app-ten-nu.vercel.app/',
+      githubUrl: 'https://github.com/theakashr/Ai-Resume-Builder',
+      highlights: [
+        { label: 'ATS Matcher', value: 'Keyword Optimized' },
+        { label: 'Interview AI', value: 'Interactive Sim' },
+        { label: 'Cloud Database', value: 'Supabase & Firebase' },
+        { label: 'Architecture', value: 'Next.js 16' },
+      ],
+    },
+    {
       id: 'rescue-ai',
       title: 'Rescue AI',
       subtitle: 'Disaster Response & Triage Command Matrix',
