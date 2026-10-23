@@ -19,7 +19,7 @@ function PortfolioApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['intro', 'projects', 'about', 'skills', 'academics', 'hackathons', 'certifications', 'contact'];
+      const sections = ['intro', 'about', 'skills', 'projects', 'hackathons', 'certifications', 'academics', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sections) {
@@ -53,23 +53,23 @@ function PortfolioApp() {
         {/* SECTION 1: Cinematic Intro with PORTFOLIO lettering and front portrait cutout */}
         <HeroSection />
 
-        {/* SECTION 2: Project Showcase with deep crimson red / white dynamic theme */}
-        <ProjectShowcase />
-
-        {/* SECTION 3: About Me with profile and full-body cutouts at BIET Davanagere */}
+        {/* SECTION 2: About Me with profile and full-body cutouts at BIET Davanagere */}
         <AboutSection />
 
-        {/* SECTION 4: Interactive Skills Repertoire */}
+        {/* SECTION 3: Interactive Skills Repertoire */}
         <SkillsSection />
 
-        {/* SECTION 5: Academics & Engineering Education at BIET */}
-        <AcademicsSection />
+        {/* SECTION 4: Project Showcase with deep crimson red / white dynamic theme */}
+        <ProjectShowcase />
 
-        {/* SECTION 6: Hackathons & Prototyping Sprints */}
+        {/* SECTION 5: Hackathons & Prototyping Sprints (Hackering 2.0 & Hack Genesis) */}
         <HackathonsSection />
 
-        {/* SECTION 7: Verified Technical Certifications (HackerRank) */}
+        {/* SECTION 6: Verified Technical Certifications (Google Cloud, IBM, HackerRank) */}
         <CertificationsSection />
+
+        {/* SECTION 7: Academics & Engineering Education at BIET */}
+        <AcademicsSection />
 
         {/* SECTION 8: Cinematic Finale & Contact */}
         <ContactSection />
