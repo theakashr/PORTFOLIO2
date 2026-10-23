@@ -72,135 +72,269 @@ export const HackathonsSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Featured Card: Hackering 2.0 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className={`max-w-5xl mx-auto rounded-3xl border-[2.5px] p-6 sm:p-10 shadow-2xl relative overflow-hidden mb-10 transition-all ${
-            isLight
-              ? 'bg-gradient-to-br from-white via-zinc-50 to-red-50/30 border-red-200 shadow-zinc-300/60'
-              : 'bg-gradient-to-br from-black via-zinc-950 to-red-950/30 border-red-600/50 shadow-2xl'
-          }`}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Left Column: Hackathon Details */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-mono-tech font-bold uppercase tracking-wider shadow-sm shadow-red-600/30">
-                  <Flame className="w-3.5 h-3.5" /> 36-HOUR NATIONAL HACKATHON
-                </span>
-                <span className="text-xs font-mono-tech text-amber-500 font-bold uppercase flex items-center gap-1">
-                  <Trophy className="w-3.5 h-3.5" /> FINAL ROUND PARTICIPANT
-                </span>
-              </div>
-
-              <h3 className={`font-impact text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide leading-none ${
-                isLight ? 'text-zinc-900' : 'text-white'
-              }`}>
-                HACKERING 2.0
-              </h3>
-
-              <div className="space-y-1">
-                <div className={`flex items-center gap-2 text-xs sm:text-sm font-semibold ${
-                  isLight ? 'text-amber-800' : 'text-amber-300'
-                }`}>
-                  <MapPin className="w-4 h-4 text-red-600 shrink-0" />
-                  <span>RV Institute of Technology and Management (RVITM), Bengaluru</span>
-                </div>
-                <div className={`flex flex-wrap items-center gap-3 text-xs font-mono-tech ${
-                  isLight ? 'text-zinc-500' : 'text-zinc-400'
-                }`}>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-red-500" />
-                    Oct 8 — 10, 2026
+        {/* Featured National Hackathons Grid (Hackering 2.0 & Hack Genesis 2026) */}
+        <div className="space-y-10 mb-12">
+          
+          {/* Card 1: Hackering 2.0 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className={`max-w-5xl mx-auto rounded-3xl border-[2.5px] p-6 sm:p-9 shadow-2xl relative overflow-hidden transition-all ${
+              isLight
+                ? 'bg-gradient-to-br from-white via-zinc-50 to-red-50/30 border-red-200 shadow-zinc-300/60'
+                : 'bg-gradient-to-br from-black via-zinc-950 to-red-950/30 border-red-600/50 shadow-2xl'
+            }`}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Hackathon Details */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-mono-tech font-bold uppercase tracking-wider shadow-sm shadow-red-600/30">
+                    <Flame className="w-3.5 h-3.5" /> 36-HOUR NATIONAL HACKATHON
                   </span>
-                  <span>&bull;</span>
-                  <span className="flex items-center gap-1 font-bold text-red-500">
-                    <Users className="w-3.5 h-3.5" />
-                    Team: HACK CORE
+                  <span className="text-xs font-mono-tech text-amber-500 font-bold uppercase flex items-center gap-1">
+                    <Trophy className="w-3.5 h-3.5" /> FINAL ROUND PARTICIPANT
                   </span>
                 </div>
-              </div>
 
-              <p className={`text-sm leading-relaxed ${
-                isLight ? 'text-zinc-700' : 'text-zinc-300'
-              }`}>
-                Represented BIET at the national-level final round of <strong>Hackering 2.0</strong>, organized by the Department of ECE &amp; Department of CSE (AI/ML). Competed in a non-stop 36-hour sprint with Team HACK CORE, conceptualizing, coding, and presenting a working software solution to an industry jury.
-              </p>
+                <h3 className={`font-impact text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide leading-none ${
+                  isLight ? 'text-zinc-900' : 'text-white'
+                }`}>
+                  HACKERING 2.0
+                </h3>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                {['36-Hour Sprint', 'Team HACK CORE', 'RVITM Bengaluru', 'AI & Embedded Systems', 'Rapid Prototyping'].map((tag, i) => (
-                  <span
-                    key={i}
-                    className={`inline-flex items-center gap-1 text-[11px] font-mono-tech px-2.5 py-1 rounded-lg ${
-                      isLight
-                        ? 'bg-zinc-100 border border-zinc-200 text-zinc-800'
-                        : 'bg-zinc-900 border border-white/10 text-zinc-300'
-                    }`}
+                <div className="space-y-1">
+                  <div className={`flex items-center gap-2 text-xs sm:text-sm font-semibold ${
+                    isLight ? 'text-amber-800' : 'text-amber-300'
+                  }`}>
+                    <MapPin className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>RV Institute of Technology and Management (RVITM), Bengaluru</span>
+                  </div>
+                  <div className={`flex flex-wrap items-center gap-3 text-xs font-mono-tech ${
+                    isLight ? 'text-zinc-500' : 'text-zinc-400'
+                  }`}>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-red-500" />
+                      Oct 8 — 10, 2026
+                    </span>
+                    <span>&bull;</span>
+                    <span className="flex items-center gap-1 font-bold text-red-500">
+                      <Users className="w-3.5 h-3.5" />
+                      Team: HACK CORE
+                    </span>
+                  </div>
+                </div>
+
+                <p className={`text-sm leading-relaxed ${
+                  isLight ? 'text-zinc-700' : 'text-zinc-300'
+                }`}>
+                  Represented BIET at the national-level final round of <strong>Hackering 2.0</strong>, organized by the Department of ECE &amp; Department of CSE (AI/ML). Competed in a non-stop 36-hour sprint with Team HACK CORE, conceptualizing, coding, and presenting a working software solution to an industry jury.
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {['36-Hour Sprint', 'Team HACK CORE', 'RVITM Bengaluru', 'AI & Embedded Systems', 'Rapid Prototyping'].map((tag, i) => (
+                    <span
+                      key={i}
+                      className={`inline-flex items-center gap-1 text-[11px] font-mono-tech px-2.5 py-1 rounded-lg ${
+                        isLight
+                          ? 'bg-zinc-100 border border-zinc-200 text-zinc-800'
+                          : 'bg-zinc-900 border border-white/10 text-zinc-300'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <a
+                    href="https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => soundFx.playClick()}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-900/40 transition-all hover:scale-105"
                   >
-                    <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                    {tag}
-                  </span>
-                ))}
+                    <Award className="w-4 h-4" />
+                    <span>VIEW HACKERING 2.0 CERTIFICATE</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-3">
+              {/* Right Column: Certificate Preview Card */}
+              <div className="lg:col-span-5">
                 <a
                   href="https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => soundFx.playClick()}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-900/40 transition-all hover:scale-105"
+                  className={`block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] ${
+                    isLight ? 'border-zinc-200 shadow-zinc-300' : 'border-white/20 shadow-black'
+                  }`}
+                  title="Click to view full certificate on Google Drive"
                 >
-                  <Award className="w-4 h-4" />
-                  <span>VIEW OFFICIAL HACKERING 2.0 CERTIFICATE</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: Certificate Preview Card */}
-            <div className="lg:col-span-5">
-              <a
-                href="https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => soundFx.playClick()}
-                className={`block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] ${
-                  isLight ? 'border-zinc-200 shadow-zinc-300' : 'border-white/20 shadow-black'
-                }`}
-                title="Click to view full certificate on Google Drive"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
-                  <img
-                    src="/images/certificates/hackering-2.0.jpg"
-                    alt="Hackering 2.0 Certificate of Participation - Akash R"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                    <div className="text-white">
-                      <span className="text-[10px] font-mono-tech uppercase font-bold tracking-wider text-amber-400 block">
-                        CERTIFICATE OF PARTICIPATION
-                      </span>
-                      <span className="font-impact text-lg uppercase block leading-none">
-                        HACKERING 2.0 &bull; RVITM
-                      </span>
-                      <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
-                        Open high-res PDF on Google Drive &rarr;
-                      </span>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
+                    <img
+                      src="/images/certificates/hackering-2.0.jpg"
+                      alt="Hackering 2.0 Certificate of Participation - Akash R"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                      <div className="text-white">
+                        <span className="text-[10px] font-mono-tech uppercase font-bold tracking-wider text-amber-400 block">
+                          CERTIFICATE OF PARTICIPATION
+                        </span>
+                        <span className="font-impact text-lg uppercase block leading-none">
+                          HACKERING 2.0 &bull; RVITM
+                        </span>
+                        <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
+                          Open high-res PDF on Google Drive &rarr;
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
+                </a>
+              </div>
 
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Hack Genesis 2026 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className={`max-w-5xl mx-auto rounded-3xl border-[2.5px] p-6 sm:p-9 shadow-2xl relative overflow-hidden transition-all ${
+              isLight
+                ? 'bg-gradient-to-br from-white via-zinc-50 to-blue-50/30 border-blue-200 shadow-zinc-300/60'
+                : 'bg-gradient-to-br from-black via-zinc-950 to-blue-950/30 border-blue-600/50 shadow-2xl'
+            }`}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Hackathon Details */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-mono-tech font-bold uppercase tracking-wider shadow-sm shadow-blue-600/30">
+                    <Trophy className="w-3.5 h-3.5" /> IEEE NATIONAL HACKATHON
+                  </span>
+                  <span className="text-xs font-mono-tech text-amber-500 font-bold uppercase flex items-center gap-1">
+                    <Award className="w-3.5 h-3.5" /> TCS KNOWLEDGE PARTNER
+                  </span>
+                </div>
+
+                <h3 className={`font-impact text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide leading-none ${
+                  isLight ? 'text-zinc-900' : 'text-white'
+                }`}>
+                  HACK GENESIS 2026
+                </h3>
+
+                <div className="space-y-1">
+                  <div className={`flex items-center gap-2 text-xs sm:text-sm font-semibold ${
+                    isLight ? 'text-blue-800' : 'text-blue-300'
+                  }`}>
+                    <MapPin className="w-4 h-4 text-blue-600 shrink-0" />
+                    <span>IEEE Student Branch of KLE Technological University, Belagavi</span>
+                  </div>
+                  <div className={`flex flex-wrap items-center gap-3 text-xs font-mono-tech ${
+                    isLight ? 'text-zinc-500' : 'text-zinc-400'
+                  }`}>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-blue-500" />
+                      Aug 7 — 8, 2026
+                    </span>
+                    <span>&bull;</span>
+                    <span className="flex items-center gap-1 font-bold text-blue-500">
+                      IEEE Bangalore Section &bull; IEEE NKSS
+                    </span>
+                  </div>
+                </div>
+
+                <p className={`text-sm leading-relaxed ${
+                  isLight ? 'text-zinc-700' : 'text-zinc-300'
+                }`}>
+                  Participated in <strong>Hack Genesis 2026</strong>, a national-level competitive hackathon organized by the IEEE Student Branch of KLE Technological University, Dr. M.S. Sheshgiri Campus in Belagavi [STB50295], with <strong>Tata Consultancy Services (TCS)</strong> as the official Knowledge Partner.
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {['IEEE Hackathon', 'KLE Tech University', 'TCS Knowledge Partner', 'Belagavi', 'National Level'].map((tag, i) => (
+                    <span
+                      key={i}
+                      className={`inline-flex items-center gap-1 text-[11px] font-mono-tech px-2.5 py-1 rounded-lg ${
+                        isLight
+                          ? 'bg-zinc-100 border border-zinc-200 text-zinc-800'
+                          : 'bg-zinc-900 border border-white/10 text-zinc-300'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <a
+                    href="https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => soundFx.playClick()}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-blue-900/40 transition-all hover:scale-105"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>VIEW HACK GENESIS 2026 CERTIFICATE</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Certificate Preview Card */}
+              <div className="lg:col-span-5">
+                <a
+                  href="https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => soundFx.playClick()}
+                  className={`block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] ${
+                    isLight ? 'border-zinc-200 shadow-zinc-300' : 'border-white/20 shadow-black'
+                  }`}
+                  title="Click to view full certificate on Google Drive"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
+                    <img
+                      src="/images/certificates/hack-genesis-2026.jpg"
+                      alt="Hack Genesis 2026 Certificate of Participation - Akash R"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                      <div className="text-white">
+                        <span className="text-[10px] font-mono-tech uppercase font-bold tracking-wider text-blue-400 block">
+                          CERTIFICATE OF PARTICIPATION
+                        </span>
+                        <span className="font-impact text-lg uppercase block leading-none">
+                          HACK GENESIS 2026 &bull; IEEE KLE TECH
+                        </span>
+                        <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
+                          Open high-res PDF on Google Drive &rarr;
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </motion.div>
+
+        </div>
 
         {/* Other Hackathons Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">

@@ -38,6 +38,7 @@ I am a Computer Science and Engineering student at **Bapuji Institute of Enginee
 - 🏆 **Hackathons & Verified Certifications**:
   - **Credly Badges**: Google Cloud (*Create Your First Gemini Enterprise Application*) & IBM (*Python for Data Science*).
   - **Hackering 2.0 (36-Hour National Hackathon)** at RVITM, Bengaluru (Team HACK CORE).
+  - **Hack Genesis 2026 (National Hackathon)** by IEEE KLE Technological University & TCS Knowledge Partner.
   - **HackerRank Certified**: Python (Basic), Problem Solving (Basic), and C# (Basic).
   - Direct external verification links for credentials and certificate PDFs.
 - 🔒 **Private Feedback Form & Secret Owner Vault**:
