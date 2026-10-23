@@ -33,7 +33,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { name: 'PROJECTS', href: '#projects' },
     { name: 'ABOUT', href: '#about' },
     { name: 'SKILLS', href: '#skills' },
-    { name: 'JOURNEY', href: '#journey' },
+    { name: 'ACADEMICS', href: '#academics' },
+    { name: 'HACKATHONS', href: '#hackathons' },
+    { name: 'CERTS', href: '#certifications' },
     { name: 'CONTACT', href: '#contact' },
   ];
 
@@ -84,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => soundFx.playHover()}
-                className={`relative px-4 py-1.5 text-xs font-semibold tracking-wider rounded-full transition-all duration-200 ${
+                className={`relative px-2.5 lg:px-3.5 py-1.5 text-[11px] lg:text-xs font-semibold tracking-wider rounded-full transition-all duration-200 ${
                   isActive
                     ? 'text-white bg-red-600 shadow-md shadow-red-600/30'
                     : isLight

@@ -74,7 +74,9 @@ portfolio/
 │   │   ├── ProjectModal.tsx         # Detailed project dialog
 │   │   ├── AboutSection.tsx         # Bio, background & education
 │   │   ├── SkillsSection.tsx        # Filterable skills repertoire
-│   │   ├── JourneySection.tsx       # Timeline, hackathons & certs
+│   │   ├── AcademicsSection.tsx     # Dedicated academics & BIET coursework
+│   │   ├── HackathonsSection.tsx    # Hackathons & Hackering 2.0 sprint
+│   │   ├── CertificationsSection.tsx# Verified HackerRank certifications
 │   │   ├── ContactSection.tsx       # Direct message form & socials
 │   │   ├── FeedbackModal.tsx        # Floating visitor feedback form
 │   │   ├── FeedbackAdminModal.tsx   # PIN-protected owner admin viewer

@@ -4,7 +4,9 @@ import { HeroSection } from './components/HeroSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
-import { JourneySection } from './components/JourneySection';
+import { AcademicsSection } from './components/AcademicsSection';
+import { HackathonsSection } from './components/HackathonsSection';
+import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FloatingThemeSwitcher } from './components/ThemeToggle';
@@ -17,7 +19,7 @@ function PortfolioApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['intro', 'projects', 'about', 'skills', 'journey', 'contact'];
+      const sections = ['intro', 'projects', 'about', 'skills', 'academics', 'hackathons', 'certifications', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sections) {
@@ -60,10 +62,16 @@ function PortfolioApp() {
         {/* SECTION 4: Interactive Skills Repertoire */}
         <SkillsSection />
 
-        {/* SECTION 5: Journey, Education, Hackathons & Certifications */}
-        <JourneySection />
+        {/* SECTION 5: Academics & Engineering Education at BIET */}
+        <AcademicsSection />
 
-        {/* SECTION 6: Cinematic Finale & Contact */}
+        {/* SECTION 6: Hackathons & Prototyping Sprints */}
+        <HackathonsSection />
+
+        {/* SECTION 7: Verified Technical Certifications (HackerRank) */}
+        <CertificationsSection />
+
+        {/* SECTION 8: Cinematic Finale & Contact */}
         <ContactSection />
       </main>
 
