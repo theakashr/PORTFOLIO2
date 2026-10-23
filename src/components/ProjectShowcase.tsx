@@ -14,28 +14,28 @@ export const ProjectShowcase: React.FC = () => {
 
   const projects: ProjectData[] = [
     {
-      id: 'edupilot-ai',
-      title: 'EduPilot AI',
-      subtitle: 'Adaptive Learning OS & Educational Copilot',
-      category: 'AI & Full-Stack',
-      tagline: 'Personalized study pathways & real-time learning progress tracking.',
-      description: 'An AI-powered adaptive educational platform that diagnoses individual student concept gaps and generates personalized study trajectories in real time.',
-      longDescription: 'EduPilot AI revolutionizes digital learning by breaking down complex syllabus topics into bite-sized, cognitively optimized pathways. Leveraging Gemini AI and real-time concept mapping, it dynamically adjusts practice quiz difficulties, synthesizes flashcards, and provides automated spaced repetition intervals tailored to each student\'s learning velocity.',
+      id: 'ai-health-predictor',
+      title: 'AI Health Predictor',
+      subtitle: 'Predictive Health Risk Monitor & Analytics',
+      category: 'AI & HealthTech',
+      tagline: 'Vitals analysis, risk forecasting, and personalized preventive healthcare.',
+      description: 'An advanced predictive healthcare platform powered by AI that analyzes patient vitals, lifestyle indicators, and biomarkers to forecast future health risks before they develop.',
+      longDescription: 'AI Health Predictor transforms preventative medicine by shifting healthcare from reactive treatment to proactive risk forecasting. Built with Next.js and Firebase, it evaluates biometric parameters, metabolic vitals, and lifestyle metrics through predictive modeling to deliver dynamic risk scores, comprehensive PDF medical reports, and personalized lifestyle intervention roadmaps.',
       features: [
-        'Dynamic Concept Mastery Radar with automated gap identification',
-        'Gemini-powered instant Socratic tutor for real-time explanations',
-        'Spaced Repetition Flashcard algorithm for long-term memory encoding',
-        'Interactive code and math sandbox with instant error feedback'
+        'Multi-factor AI health risk calculator analyzing vitals, lifestyle, and biometric factors',
+        'Dynamic risk projection charts and health trend forecasting using Recharts',
+        'Automated clinical-grade PDF health summary report generation (@react-pdf)',
+        'Secure patient assessment telemetry & historical tracking backed by Firebase'
       ],
-      techStack: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Gemini AI', 'Firestore'],
-      previewImage: '/images/projects/edupilot.svg',
-      liveUrl: 'https://edupilot-ai-demo.vercel.app',
-      githubUrl: 'https://github.com/theakashr/edupilot-ai',
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Recharts', 'Framer Motion'],
+      previewImage: '/images/projects/ai-health-predictor.svg',
+      liveUrl: 'https://ai-health-predictor-theta.vercel.app/',
+      githubUrl: 'https://github.com/theakashr/ai-health-predictor',
       highlights: [
-        { label: 'Latency', value: '<250ms' },
-        { label: 'Retention Boost', value: '42%' },
-        { label: 'Active Topics', value: '150+' },
-        { label: 'Architecture', value: 'Full-Stack' },
+        { label: 'Risk Model', value: 'AI Predictive' },
+        { label: 'Telemetry', value: 'Firebase Sync' },
+        { label: 'Reports', value: 'Instant PDF' },
+        { label: 'Architecture', value: 'Next.js App' },
       ],
     },
     {

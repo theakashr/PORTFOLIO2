@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1118"/>
+      <stop offset="50%" stop-color="#121824"/>
+      <stop offset="100%" stop-color="#1c111e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="50%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="ecgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#ef4444" stop-opacity="0.95"/>
+      <stop offset="80%" stop-color="#10b981" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="14" fill="url(#bg)"/>
+
+  <!-- Subtle Medical Grid -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="0.75">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- Ambient Glow Circles -->
+  <circle cx="680" cy="110" r="90" fill="#ef4444" opacity="0.08"/>
+  <circle cx="120" cy="390" r="80" fill="#10b981" opacity="0.07"/>
+
+  <!-- Top Accent Bar -->
+  <rect x="80" y="80" width="70" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- ECG Heartbeat Pulse Line Background Silhouette -->
+  <path d="M 80 170 L 260 170 L 285 140 L 310 205 L 340 100 L 375 230 L 400 160 L 430 170 L 510 170 L 530 145 L 550 195 L 575 125 L 605 210 L 630 170 L 720 170" 
+        fill="none" stroke="url(#ecgGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" />
+
+  <!-- Shield + Cross Medical Centerpiece -->
+  <g transform="translate(400, 140)" opacity="0.2">
+    <!-- Heart pulse icon -->
+    <path d="M-30,-20 A18,18 0 0,1 0, -5 A18,18 0 0,1 30,-20 A18,18 0 0,1 30,10 L0,40 L-30,10 A18,18 0 0,1 -30,-20 Z" fill="none" stroke="#ef4444" stroke-width="3" />
+  </g>
+
+  <!-- Main Title -->
+  <text x="400" y="240" text-anchor="middle" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-weight="900" font-size="52" fill="#ffffff" letter-spacing="1.5" filter="url(#glow)">AI Health Predictor</text>
+
+  <!-- Dynamic Gradient Underline -->
+  <rect x="250" y="260" width="300" height="3" rx="1.5" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="400" y="302" text-anchor="middle" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-weight="500" font-size="16" fill="#cbd5e1" opacity="0.85" letter-spacing="3.5">PREDICTIVE HEALTHCARE &amp; RISK MONITOR</text>
+
+  <!-- Badge / Tag Pills -->
+  <g transform="translate(195, 345)">
+    <rect x="0" y="0" width="95" height="28" rx="14" fill="#ef4444" opacity="0.16"/>
+    <text x="47.5" y="19" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#f87171" font-weight="600">Next.js</text>
+    
+    <rect x="105" y="0" width="85" height="28" rx="14" fill="#ef4444" opacity="0.16"/>
+    <text x="147.5" y="19" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#f87171" font-weight="600">AI / ML</text>
+    
+    <rect x="200" y="0" width="95" height="28" rx="14" fill="#10b981" opacity="0.16"/>
+    <text x="247.5" y="19" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#34d399" font-weight="600">Firebase</text>
+    
+    <rect x="305" y="0" width="105" height="28" rx="14" fill="#10b981" opacity="0.16"/>
+    <text x="357.5" y="19" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#34d399" font-weight="600">Analytics</text>
+  </g>
+
+  <!-- Technical Corner Brackets -->
+  <path d="M0,0 L40,0 L40,3 L3,3 L3,40 L0,40 Z" fill="#ef4444" opacity="0.4" transform="translate(24,24)"/>
+  <path d="M0,0 L40,0 L40,3 L3,3 L3,40 L0,40 Z" fill="#10b981" opacity="0.4" transform="translate(776,476) rotate(180)"/>
+</svg>
