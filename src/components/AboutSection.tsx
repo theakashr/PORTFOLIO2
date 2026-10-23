@@ -186,7 +186,7 @@ export const AboutSection: React.FC = () => {
               <p className={`text-sm sm:text-base leading-relaxed ${
                 isLight ? 'text-zinc-600' : 'text-zinc-300'
               }`}>
-                I am deeply focused on developing <span className={isLight ? 'text-red-700 font-bold' : 'text-yellow-400 font-semibold'}>useful products that solve genuine real-world problems</span> — whether it is coordinating emergency medical disaster logistics through <span className="text-red-600 font-semibold">Rescue AI</span>, forecasting personal health risks through <span className="text-red-600 font-semibold">AI Health Predictor</span>, or powering grassroots tournament cricket in <span className="text-red-600 font-semibold">11Shots</span>.
+                I am deeply focused on developing <span className={isLight ? 'text-red-700 font-bold' : 'text-yellow-400 font-semibold'}>useful products that solve genuine real-world problems</span> — whether it is coordinating emergency medical disaster logistics through <span className="text-red-600 font-semibold">Rescue AI</span>, forecasting personal health risks through <span className="text-red-600 font-semibold">AI Health Predictor</span>, transforming adaptive education with <span className="text-red-600 font-semibold">EduPilot AI</span>, or powering grassroots tournament cricket in <span className="text-red-600 font-semibold">11Shots</span>.
               </p>
             </div>
 

@@ -49,12 +49,12 @@
   <!-- Subtitle -->
   <text x="400" y="300" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="20" fill="#ffffff" opacity="0.7" letter-spacing="4">ADAPTIVE LEARNING PLATFORM</text>
   <!-- Bottom tag pills -->
-  <rect x="240" y="350" width="80" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
-  <text x="280" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">React</text>
-  <rect x="335" y="350" width="60" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
-  <text x="365" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">AI</text>
-  <rect x="410" y="350" width="100" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
-  <text x="460" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">Education</text>
+  <rect x="225" y="350" width="85" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="267" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ef4444" font-weight="600">Next.js</text>
+  <rect x="320" y="350" width="95" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="367" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ef4444" font-weight="600">AI / Vision</text>
+  <rect x="425" y="350" width="90" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="470" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ef4444" font-weight="600">EdTech</text>
   <!-- Corner accents -->
   <path d="M0,0 L50,0 L50,4 L4,4 L4,50 L0,50 Z" fill="#dc2626" opacity="0.3" transform="translate(20,20)"/>
   <path d="M0,0 L50,0 L50,4 L4,4 L4,50 L0,50 Z" fill="#dc2626" opacity="0.3" transform="translate(780,480) rotate(180)"/>

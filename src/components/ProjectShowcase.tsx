@@ -39,6 +39,31 @@ export const ProjectShowcase: React.FC = () => {
       ],
     },
     {
+      id: 'edupilot-ai',
+      title: 'EduPilot AI',
+      subtitle: 'Adaptive Learning OS & Teacher AI Co-Pilot',
+      category: 'AI & EdTech',
+      tagline: 'Personalized study trajectories, MediaPipe attention telemetry, and teacher copilot workflows.',
+      description: 'An AI-powered adaptive educational platform and teacher co-pilot that synthesizes personalized study paths, tracks cognitive mastery, and processes learning materials in real-time.',
+      longDescription: 'EduPilot AI revolutionizes digital classrooms with adaptive pedagogy and intelligent co-pilot tools for educators. Leveraging Next.js 16, MediaPipe computer vision, and Firebase/Supabase, it evaluates student engagement telemetry, automatically generates diagnostic quizzes from uploaded PDFs, and constructs personalized review trajectories tailored to individual learning velocity.',
+      features: [
+        'Automated curriculum diagnosis & personalized concept gap remediation',
+        'MediaPipe Vision telemetry for student engagement & attentiveness analytics',
+        'Teacher AI Co-Pilot with automatic lesson plan & quiz generation from PDFs',
+        'Dual cloud synchronization utilizing Firebase and Supabase for real-time progress'
+      ],
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MediaPipe Vision', 'Firebase', 'Supabase', 'Unpdf'],
+      previewImage: '/images/projects/edupilot.svg',
+      liveUrl: 'https://edupilot-ai-brown.vercel.app/',
+      githubUrl: 'https://github.com/theakashr/edupilotAi',
+      highlights: [
+        { label: 'Vision AI', value: 'MediaPipe' },
+        { label: 'Cloud Sync', value: 'Firebase & Supabase' },
+        { label: 'Doc Parser', value: 'PDF Engine' },
+        { label: 'Architecture', value: 'Next.js 16' },
+      ],
+    },
+    {
       id: 'rescue-ai',
       title: 'Rescue AI',
       subtitle: 'Disaster Response & Triage Command Matrix',
@@ -158,7 +183,7 @@ export const ProjectShowcase: React.FC = () => {
           >
             <Sparkles className={`w-4 h-4 animate-spin ${isLight ? 'text-red-500' : 'text-amber-300'}`} style={{ animationDuration: '6s' }} />
             <span className="text-xs font-mono-tech tracking-widest uppercase font-bold">
-              FEATURED PROJECTS • WORKS '26
+              FEATURED &amp; FUTURE WORKS • BUILDS '26
             </span>
           </motion.div>
 
@@ -183,7 +208,7 @@ export const ProjectShowcase: React.FC = () => {
                   }
             }
           >
-            FEATURED WORKS
+            FEATURED &amp; FUTURE WORKS
           </motion.h2>
 
           <p className={`text-sm sm:text-base font-sans max-w-2xl mx-auto mt-3 font-medium transition-colors ${

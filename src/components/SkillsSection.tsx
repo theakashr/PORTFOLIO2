@@ -51,7 +51,7 @@ export const SkillsSection: React.FC = () => {
       name: 'Cloud Firestore',
       category: 'BACKEND',
       role: 'NoSQL Document Store & Real-Time Collections',
-      appliedIn: 'Dynamic storage for user assessments in AI Health Predictor & 11Shots live match scoring',
+      appliedIn: 'Dynamic storage for user assessments in AI Health Predictor, EduPilot AI paths & 11Shots live scoring',
       highlights: ['Document/Collection Modeling', 'Real-Time Snapshot Listeners', 'Compound Indexing & Queries'],
       color: '#EF4444',
     },
