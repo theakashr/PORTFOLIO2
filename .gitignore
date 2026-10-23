@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel
+
+# Temporary design verification assets & scripts
+*.mp4
+video_frames/
+cutouts/
+*_crop.jpg
+*_crop.png
+*_verify.png
+hero_*.png
+hero_*.jpg
+11shots_*.png
+11shots_*.jpg
+contact_*.png
+contact_*.jpg
+skills_*.png
+skills_*.jpg
+*.py
+hero.png
+portfolioimage1.jpeg
+image2.jpeg
+image3.jpeg

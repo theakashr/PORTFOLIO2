@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1b0f"/>
+      <stop offset="100%" stop-color="#1a1a28"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" rx="12" fill="url(#bg)"/>
+  <!-- Hex grid pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="0.6" fill="none">
+    <polygon points="100,80 130,60 160,80 160,120 130,140 100,120"/>
+    <polygon points="160,80 190,60 220,80 220,120 190,140 160,120"/>
+    <polygon points="130,140 160,120 190,140 190,180 160,200 130,180"/>
+    <polygon points="620,320 650,300 680,320 680,360 650,380 620,360"/>
+    <polygon points="680,320 710,300 740,320 740,360 710,380 680,360"/>
+    <polygon points="650,380 680,360 710,380 710,420 680,440 650,420"/>
+  </g>
+  <!-- Decorative blobs -->
+  <circle cx="680" cy="100" r="70" fill="#dc2626" opacity="0.06"/>
+  <circle cx="120" cy="420" r="50" fill="#22c55e" opacity="0.04"/>
+  <!-- Accent bar -->
+  <rect x="80" y="160" width="60" height="4" rx="2" fill="url(#accent)"/>
+  <!-- Medical cross + pill icon -->
+  <g transform="translate(400, 130)" opacity="0.15">
+    <!-- Medical cross -->
+    <rect x="-12" y="-35" width="24" height="70" rx="4" fill="#dc2626"/>
+    <rect x="-35" y="-12" width="70" height="24" rx="4" fill="#dc2626"/>
+    <!-- Pill shape -->
+    <g transform="translate(55, -15) rotate(45)">
+      <rect x="-10" y="-25" width="20" height="50" rx="10" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#dc2626" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- Heartbeat line -->
+  <polyline points="50,420 200,420 220,420 235,390 250,450 265,410 280,420 500,420 520,420 535,395 548,445 560,415 573,420 750,420" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.1"/>
+  <!-- Main title -->
+  <text x="400" y="235" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="800" font-size="62" fill="#ffffff" letter-spacing="6" filter="url(#glow)">MEDINEX</text>
+  <!-- Red underline -->
+  <rect x="265" y="255" width="270" height="3" rx="1.5" fill="url(#accent)"/>
+  <!-- Subtitle -->
+  <text x="400" y="300" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="20" fill="#ffffff" opacity="0.7" letter-spacing="4">PHARMACY MANAGEMENT SUITE</text>
+  <!-- Bottom tag pills -->
+  <rect x="220" y="350" width="90" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="265" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">Django</text>
+  <rect x="325" y="350" width="100" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="375" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">Healthcare</text>
+  <rect x="440" y="350" width="100" height="28" rx="14" fill="#dc2626" opacity="0.15"/>
+  <text x="490" y="369" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#dc2626" font-weight="600">Inventory</text>
+  <!-- Corner accents -->
+  <path d="M0,0 L50,0 L50,4 L4,4 L4,50 L0,50 Z" fill="#dc2626" opacity="0.3" transform="translate(20,20)"/>
+  <path d="M0,0 L50,0 L50,4 L4,4 L4,50 L0,50 Z" fill="#dc2626" opacity="0.3" transform="translate(780,480) rotate(180)"/>
+</svg>

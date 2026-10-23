@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-impact: 'Anton', 'Bebas Neue', Impact, sans-serif;
+    --font-display: 'Bebas Neue', 'Anton', sans-serif;
+    --font-script: 'Caveat', cursive;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #111827;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+}
+
+/* Custom font utility classes */
+.font-impact {
+  font-family: var(--font-impact);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono);
+}
+
+/* Diagonal streaks effect */
+@keyframes streakFlow {
+  0% {
+    transform: translate(-100px, -100px) rotate(45deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(600px, 600px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.animate-streak-fast {
+  animation: streakFlow 4s linear infinite;
+}
+
+.animate-streak-slow {
+  animation: streakFlow 7s linear infinite;
+}
+
+/* Light sweep beam animation for letters */
+@keyframes lightSweep {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+/* Continuous infinite marquee */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.light-sweep-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-sweep-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 60, 60, 0.2) 30%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 60, 60, 0.2) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: lightSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Cinematic glowing text effects */
+.glow-red {
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.8), 0 0 40px rgba(185, 28, 28, 0.6), 0 0 80px rgba(153, 27, 27, 0.4);
+}
+
+.glow-yellow {
+  text-shadow: 0 0 25px rgba(234, 179, 8, 0.7), 0 0 50px rgba(202, 138, 4, 0.5), 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.glow-card {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Portrait cinematic ambient glow effect */
+.portrait-glow {
+  filter: drop-shadow(0 0 35px rgba(220, 38, 38, 0.35));
+}
+
+html.light .portrait-glow {
+  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.18));
+}
+
+/* Background gradient styles from reference video */
+.bg-deep-crimson {
+  background: radial-gradient(circle at 50% 40%, #991b1b 0%, #7f1d1d 35%, #450a0a 70%, #1e0505 100%);
+}
+
+.bg-cinematic-black {
+  background: radial-gradient(circle at 50% 50%, #120303 0%, #080202 50%, #030101 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090202;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #090202;
+}
+::-webkit-scrollbar-thumb {
+  background: #b91c1c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
