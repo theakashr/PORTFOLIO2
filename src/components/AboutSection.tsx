@@ -24,13 +24,13 @@ export const AboutSection: React.FC = () => {
     soundFx.playClick();
     const configData = {
       developer: 'Akash R',
-      role: 'Software & Applied AI Engineer',
+      role: 'Software & AI Engineer',
       institution: 'BIET Davanagere',
       course: 'B.E. Computer Science (2024–2028)',
       academic_status: '2nd Year Undergraduate',
-      core_languages: ['Python', 'JavaScript', 'C', 'C#', 'SQL'],
+      core_languages: ['Python', 'C', 'JavaScript', 'SQL'],
       frameworks_and_tools: ['React', 'TailwindCSS', 'Node.js', 'Firebase', 'Git', 'Vercel'],
-      engineering_focus: 'Tangible Human Utility & AI Agents',
+      engineering_focus: 'Building Real-World Web Apps & AI Tools',
       flagship_products: [
         'Rescue AI (Disaster Medical Logistics)',
         'ResumeAI (ATS Analyzer & Optimizer)',
@@ -39,7 +39,7 @@ export const AboutSection: React.FC = () => {
         '11Shots (Tournament Cricket Platform)',
       ],
       location: 'Davanagere, Karnataka, India',
-      status: 'Available for High-Impact Engineering Roles',
+      status: 'Ready to Build & Ship',
     };
 
     try {
@@ -118,9 +118,8 @@ export const AboutSection: React.FC = () => {
         <span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"Python"</span><span className="text-zinc-500">, </span>
-          <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"JavaScript"</span><span className="text-zinc-500">, </span>
           <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"C"</span><span className="text-zinc-500">, </span>
-          <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"C#"</span><span className="text-zinc-500">, </span>
+          <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"JavaScript"</span><span className="text-zinc-500">, </span>
           <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"SQL"</span>
         </span>
       ),
@@ -140,7 +139,7 @@ export const AboutSection: React.FC = () => {
         <span>
           &nbsp;&nbsp;<span className={isLight ? 'text-red-700 font-semibold' : 'text-red-400 font-semibold'}>"focus"</span>
           <span className="text-zinc-500">: </span>
-          <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"Tangible Utility &amp; AI Agents"</span>
+          <span className={isLight ? 'text-emerald-700 font-medium' : 'text-emerald-400'}>"Real-World Web Apps &amp; AI Tools"</span>
           <span className="text-zinc-500">,</span>
         </span>
       ),
@@ -185,23 +184,23 @@ export const AboutSection: React.FC = () => {
   const principles = [
     {
       icon: Terminal,
-      title: 'Systems & Logic',
-      desc: 'Grounding development in C, algorithms, memory awareness, and structured computational problem solving.',
+      title: 'Programming & Logic',
+      desc: 'Solid foundation in Python and C, data structures, algorithms, and practical problem solving.',
     },
     {
       icon: Sparkles,
-      title: 'AI & Cognitive Tools',
-      desc: 'Integrating Large Language Models, embeddings, and intelligent agents into practical everyday tools.',
+      title: 'Practical AI Tools',
+      desc: 'Building smart web applications using modern AI models (like Gemini API) to solve everyday tasks.',
     },
     {
       icon: Code2,
-      title: 'Modern Frontend Craft',
-      desc: 'Constructing reactive, accessible, high-framerate interfaces with React, JavaScript, and tailored CSS.',
+      title: 'Web Development',
+      desc: 'Building responsive, fast, and easy-to-use web applications with React, JavaScript, and Tailwind CSS.',
     },
     {
       icon: Rocket,
-      title: 'Zero to Deployment',
-      desc: 'Shipping real applications to production with Git, Vercel, Firebase, and continuous refinement.',
+      title: 'Built & Deployed',
+      desc: 'Taking projects from code to live production with Git, Vercel, and Firebase so people can actually use them.',
     },
   ];
 
@@ -373,7 +372,7 @@ export const AboutSection: React.FC = () => {
                     >
                       CORE ARSENAL:
                     </span>
-                    {['Python', 'JavaScript', 'C', 'C#', 'SQL', 'React', 'Firebase', 'Applied AI'].map(
+                    {['Python', 'C', 'JavaScript', 'SQL', 'React', 'Firebase', 'AI Tools'].map(
                       (tag) => (
                         <span
                           key={tag}
@@ -467,17 +466,17 @@ export const AboutSection: React.FC = () => {
               <h3 className={`font-impact text-2xl sm:text-3xl uppercase tracking-wide ${
                 isLight ? 'text-zinc-900' : 'text-white'
               }`}>
-                PURPOSE-DRIVEN SOFTWARE CRAFTSMANSHIP
+                BUILDING REAL-WORLD SOFTWARE &amp; AI
               </h3>
               <p className={`text-sm sm:text-base leading-relaxed ${
                 isLight ? 'text-zinc-600' : 'text-zinc-300'
               }`}>
-                My journey began with a curiosity for how code transforms into software people rely on. From mastering core programming fundamentals in <span className={isLight ? 'text-zinc-900 font-semibold' : 'text-white font-semibold'}>C and Python</span> to orchestrating scalable systems, I view coding as both rigorous engineering and expressive design.
+                I am a 2nd-year Computer Science student with a strong passion for building software that helps people solve real problems. My journey started with core programming in <span className={isLight ? 'text-zinc-900 font-bold' : 'text-white font-semibold'}>Python and C</span>, and has grown into developing full-stack web applications and practical AI tools.
               </p>
               <p className={`text-sm sm:text-base leading-relaxed ${
                 isLight ? 'text-zinc-600' : 'text-zinc-300'
               }`}>
-                I am deeply focused on developing <span className={isLight ? 'text-red-700 font-bold' : 'text-yellow-400 font-semibold'}>useful products that solve genuine real-world problems</span> — whether it is coordinating emergency medical disaster logistics through <span className="text-red-600 font-semibold">Rescue AI</span>, optimizing career pipelines via <span className="text-red-600 font-semibold">ResumeAI</span>, forecasting personal health risks through <span className="text-red-600 font-semibold">AI Health Predictor</span>, transforming education with <span className="text-red-600 font-semibold">EduPilot AI</span>, or powering grassroots tournament cricket in <span className="text-red-600 font-semibold">11Shots</span>.
+                Instead of just writing demo code, I focus on building <span className={isLight ? 'text-red-700 font-bold' : 'text-yellow-400 font-semibold'}>complete applications that solve real-world problems</span> — whether it is coordinating emergency medical disaster relief in <span className="text-red-600 font-semibold">Rescue AI</span>, automated resume analysis in <span className="text-red-600 font-semibold">ResumeAI</span>, early disease risk screening in <span className="text-red-600 font-semibold">AI Health Predictor</span>, interactive study roadmaps in <span className="text-red-600 font-semibold">EduPilot AI</span>, or tournament cricket scoring in <span className="text-red-600 font-semibold">11Shots</span>.
               </p>
             </div>
 
