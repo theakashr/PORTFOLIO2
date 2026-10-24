@@ -75,6 +75,7 @@ export const CertificationsSection: React.FC = () => {
       platform: 'Credly',
       url: 'https://www.credly.com/badges/9a396e5e-8651-4646-bb34-4acae26a3930',
       badgeImage: '/images/certificates/gemini-enterprise-badge.png',
+      certificateImage: '/images/certificates/create-your-first-gemini-enterprise-application.png',
       accentColor: '#4285F4',
       badgeTag: 'GOOGLE CLOUD SKILL BADGE',
       description:
@@ -342,7 +343,11 @@ export const CertificationsSection: React.FC = () => {
                       <img
                         src={item.certificateImage}
                         alt={`${item.title} Certificate`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+                        className={`w-full h-full transition-transform duration-300 group-hover/img:scale-105 ${
+                          item.certificateImage.includes('badge') || item.certificateImage.includes('gemini')
+                            ? 'object-contain p-2'
+                            : 'object-cover'
+                        }`}
                       />
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 text-white p-3 text-center">
                         <Eye className="w-6 h-6 text-white" />
