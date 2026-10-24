@@ -12,6 +12,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FloatingThemeSwitcher } from './components/ThemeToggle';
 import { FeedbackModal } from './components/FeedbackModal';
 import { FeedbackAdminModal } from './components/FeedbackAdminModal';
+import { AskAkashAIModal } from './components/AskAkashAIModal';
 
 function PortfolioApp() {
   const [activeSection, setActiveSection] = useState('intro');
@@ -83,6 +84,9 @@ function PortfolioApp() {
 
       {/* Secret Owner Admin Feedback Vault (Ctrl + Shift + F or lock button) */}
       <FeedbackAdminModal />
+
+      {/* Ask Akash AI Interactive Portfolio Assistant */}
+      <AskAkashAIModal />
     </div>
   );
 }

@@ -82,6 +82,38 @@ export const CertificationsSection: React.FC = () => {
       skills: ['Google Cloud', 'Gemini API', 'AI Agents', 'Multi-Agent Ideation', 'NotebookLM', 'Prompt Engineering'],
     },
     {
+      id: 'bba667df-6cdf-4a1b-b26a-1d60a51b0bf6',
+      type: 'CREDLY',
+      title: 'AI Fundamentals: Language and Vision in AI',
+      issuer: 'IBM SkillsBuild',
+      platform: 'Credly',
+      url: 'https://www.credly.com/badges/bba667df-6cdf-4a1b-b26a-1d60a51b0bf6',
+      badgeImage: '/images/certificates/ibm-ai-fundamentals-badge.png',
+      certificateImage: '/images/certificates/ibm-ai-language-vision-cert.jpg',
+      pdfUrl: '/certificates/ibm-ai-language-vision.pdf',
+      accentColor: '#0F62FE',
+      badgeTag: 'IBM VERIFIED CREDENTIAL',
+      description:
+        'Demonstrates applied knowledge of artificial intelligence in real-world contexts, including how AI processes language and images (NLP & Computer Vision), distinguishing automation from intelligent agents, and evaluating ethical AI implications.',
+      skills: ['Artificial Intelligence', 'Natural Language Processing (NLP)', 'Computer Vision', 'Intelligent Agents', 'AI Ethics', 'Generative AI'],
+    },
+    {
+      id: '8dcd5b5b-6522-47c2-b51c-570b2b4f96da',
+      type: 'CREDLY',
+      title: 'AI Fundamentals: Foundations for Understanding AI',
+      issuer: 'IBM SkillsBuild',
+      platform: 'Credly',
+      url: 'https://www.credly.com/badges/8dcd5b5b-6522-47c2-b51c-570b2b4f96da',
+      badgeImage: '/images/certificates/ibm-ai-foundations-badge.png',
+      certificateImage: '/images/certificates/ibm-ai-foundations-cert.jpg',
+      pdfUrl: '/certificates/ibm-ai-foundations.pdf',
+      accentColor: '#0F62FE',
+      badgeTag: 'IBM VERIFIED CREDENTIAL',
+      description:
+        'Validates foundational knowledge of artificial intelligence, core machine learning paradigms, deep learning, neural network functioning, AI ethics principles, and responsible generative AI tool implementation.',
+      skills: ['Artificial Intelligence', 'Machine Learning', 'Deep Learning', 'Neural Networks', 'AI Ethics', 'Cognitive Computing'],
+    },
+    {
       id: '99d13e72-0d63-4184-9a65-130a1e9648f2',
       type: 'CREDLY',
       title: 'Python for Data Science',
@@ -283,8 +315,8 @@ export const CertificationsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Certificate Image Thumbnail for Infosys Springboard */}
-                  {isInfosys && item.certificateImage && (
+                  {/* Certificate Image Thumbnail */}
+                  {item.certificateImage && (
                     <div
                       onClick={() => {
                         soundFx.playClick();
@@ -350,7 +382,7 @@ export const CertificationsSection: React.FC = () => {
 
                 {/* Bottom Verification & Actions */}
                 <div className="pt-6 mt-6 border-t border-current/10 space-y-2">
-                  {isInfosys ? (
+                  {item.certificateImage ? (
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => {
@@ -373,10 +405,16 @@ export const CertificationsSection: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => soundFx.playClick()}
-                        className="py-2.5 px-3 rounded-xl font-impact text-xs uppercase tracking-wider bg-[#0070AD] hover:bg-[#005a8c] text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-md shadow-sky-900/20"
+                        className={`py-2.5 px-3 rounded-xl font-impact text-xs uppercase tracking-wider text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-md ${
+                          isCredly
+                            ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-600/30'
+                            : isInfosys
+                            ? 'bg-[#0070AD] hover:bg-[#005a8c] shadow-sky-900/20'
+                            : 'bg-red-600 hover:bg-red-500 shadow-red-600/30'
+                        }`}
                       >
-                        <FileText className="w-3.5 h-3.5" />
-                        <span>VIEW PDF</span>
+                        <Award className="w-3.5 h-3.5" />
+                        <span>{isCredly ? 'VERIFY' : 'VIEW PDF'}</span>
                         <ExternalLink className="w-3 h-3 opacity-80" />
                       </a>
                     </div>
@@ -470,7 +508,11 @@ export const CertificationsSection: React.FC = () => {
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <div className="flex items-center gap-2 text-xs font-mono-tech text-zinc-400">
                   <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                  <span>Scan QR on certificate or verify at verify.onwingspan.com</span>
+                  <span>
+                    {previewCert.verifyUrl.includes('wingspan')
+                      ? 'Scan QR on certificate or verify at verify.onwingspan.com'
+                      : 'Authentic digital credential verified on Credly platform'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   {previewCert.pdfUrl && (
@@ -490,10 +532,14 @@ export const CertificationsSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => soundFx.playClick()}
-                    className="px-4 py-2.5 rounded-xl text-xs font-impact uppercase tracking-wider bg-[#0070AD] hover:bg-[#005a8c] text-white flex items-center gap-1.5 transition-colors cursor-pointer shadow-lg shadow-sky-900/30"
+                    className={`px-4 py-2.5 rounded-xl text-xs font-impact uppercase tracking-wider text-white flex items-center gap-1.5 transition-colors cursor-pointer shadow-lg ${
+                      previewCert.verifyUrl.includes('credly')
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-600/30'
+                        : 'bg-[#0070AD] hover:bg-[#005a8c] shadow-sky-900/30'
+                    }`}
                   >
                     <ShieldCheck className="w-4 h-4" />
-                    <span>VERIFY ON WINGSPAN</span>
+                    <span>VERIFY ON {previewCert.verifyUrl.includes('credly') ? 'CREDLY' : 'WINGSPAN'}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>

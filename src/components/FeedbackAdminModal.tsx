@@ -23,7 +23,10 @@ import {
   clearAllFeedbacksFromStorage,
   verifyAdminPin, 
   setAdminPin,
-  exportFeedbacksToCSV
+  exportFeedbacksToCSV,
+  getGoogleSheetWebhookUrl,
+  setGoogleSheetWebhookUrl,
+  RECIPIENT_EMAIL
 } from '../utils/feedbackStorage';
 
 export const FeedbackAdminModal: React.FC = () => {
@@ -36,6 +39,9 @@ export const FeedbackAdminModal: React.FC = () => {
   const [showPinChange, setShowPinChange] = useState(false);
   const [newPin, setNewPin] = useState('');
   const [pinChangeMsg, setPinChangeMsg] = useState('');
+  const [showSheetConfig, setShowSheetConfig] = useState(false);
+  const [sheetWebhookInput, setSheetWebhookInput] = useState(() => getGoogleSheetWebhookUrl());
+  const [sheetSavedMsg, setSheetSavedMsg] = useState('');
   const { isLight } = useTheme();
 
   // Listen for Ctrl+Shift+F hotkey or custom event
@@ -117,6 +123,14 @@ export const FeedbackAdminModal: React.FC = () => {
     } else {
       setPinChangeMsg('PIN must be at least 4 digits');
     }
+  };
+
+  const handleSaveSheetWebhook = (e: React.FormEvent) => {
+    e.preventDefault();
+    setGoogleSheetWebhookUrl(sheetWebhookInput);
+    soundFx.playChime();
+    setSheetSavedMsg('Google Sheet Webhook saved!');
+    setTimeout(() => setSheetSavedMsg(''), 3000);
   };
 
   const filteredFeedbacks = feedbacks.filter((item) => {
@@ -306,15 +320,24 @@ export const FeedbackAdminModal: React.FC = () => {
                   isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-black/50 border-white/10'
                 }`}>
                   <span className="text-[10px] font-mono-tech uppercase text-zinc-400 block">
-                    SECURITY
+                    CHANNELS &amp; SYNC
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setShowPinChange(!showPinChange)}
-                    className="text-xs font-mono-tech text-red-500 hover:underline text-left cursor-pointer font-bold"
-                  >
-                    {showPinChange ? 'Hide PIN Settings' : 'Change PIN ⚙️'}
-                  </button>
+                  <div className="flex flex-col gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setShowPinChange(!showPinChange)}
+                      className="text-xs font-mono-tech text-red-500 hover:underline text-left cursor-pointer font-bold"
+                    >
+                      {showPinChange ? 'Hide PIN Settings' : 'Vault PIN ⚙️'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowSheetConfig(!showSheetConfig)}
+                      className="text-xs font-mono-tech text-emerald-500 hover:underline text-left cursor-pointer font-bold"
+                    >
+                      {showSheetConfig ? 'Hide Sheet Sync' : 'Google Sheet Sync 📊'}
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -348,9 +371,52 @@ export const FeedbackAdminModal: React.FC = () => {
                     />
                     <button
                       type="submit"
-                      className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl text-xs font-mono-tech uppercase font-bold"
+                      className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl text-xs font-mono-tech uppercase font-bold cursor-pointer"
                     >
                       SAVE PIN
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              {/* Google Sheets Sync Panel (Toggleable) */}
+              {showSheetConfig && (
+                <form
+                  onSubmit={handleSaveSheetWebhook}
+                  className={`p-4 rounded-2xl border space-y-3 ${
+                    isLight ? 'bg-emerald-50/50 border-emerald-200' : 'bg-emerald-950/20 border-emerald-900/40'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h5 className="font-impact text-sm uppercase tracking-wider text-emerald-500">
+                        GOOGLE SHEETS WEBHOOK (OPTION B)
+                      </h5>
+                      <p className="text-[11px] font-mono-tech text-zinc-400 mt-0.5">
+                        Feedback is automatically emailed to <strong>{RECIPIENT_EMAIL}</strong>. Paste a Google Apps Script Webhook URL below to also append rows automatically to a private Google Sheet.
+                      </p>
+                    </div>
+                    {sheetSavedMsg && (
+                      <span className="text-xs font-mono-tech text-emerald-500 font-bold shrink-0">
+                        {sheetSavedMsg}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="url"
+                      value={sheetWebhookInput}
+                      onChange={(e) => setSheetWebhookInput(e.target.value)}
+                      placeholder="https://script.google.com/macros/s/.../exec"
+                      className={`flex-1 px-3 py-2 rounded-xl border text-xs font-mono-tech focus:outline-none ${
+                        isLight ? 'bg-white border-zinc-300 text-zinc-900' : 'bg-black/70 border-white/20 text-white'
+                      }`}
+                    />
+                    <button
+                      type="submit"
+                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-mono-tech uppercase font-bold cursor-pointer"
+                    >
+                      SAVE WEBHOOK
                     </button>
                   </div>
                 </form>

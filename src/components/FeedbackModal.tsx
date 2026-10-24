@@ -13,7 +13,7 @@ import confetti from 'canvas-confetti';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
 import type { FeedbackCategory, ReviewerRole } from '../types/feedback';
-import { saveFeedbackToStorage } from '../utils/feedbackStorage';
+import { dispatchFeedbackToChannels, RECIPIENT_EMAIL } from '../utils/feedbackStorage';
 
 interface FeedbackModalProps {
   isOpenExternal?: boolean;
@@ -65,8 +65,6 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
   const [submitted, setSubmitted] = useState(false);
   const { isLight } = useTheme();
 
-  const recipientEmail = 'akashakashr505@gmail.com';
-
   useEffect(() => {
     const handleOpen = () => setInternalOpen(true);
     window.addEventListener('open-portfolio-feedback', handleOpen);
@@ -89,6 +87,8 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
     }
   };
 
+  const [deliveryStatus, setDeliveryStatus] = useState<{ email: boolean; sheet: boolean }>({ email: true, sheet: false });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
@@ -96,53 +96,38 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
     setIsSubmitting(true);
     soundFx.playClick();
 
-    // 1. Save to local storage for the private Admin Dashboard
-    saveFeedbackToStorage({
-      rating,
-      category,
-      feedback: feedback.trim(),
-      reviewerRole,
-      name: isAnonymous ? 'Anonymous' : name.trim() || undefined,
-      email: isAnonymous ? undefined : email.trim() || undefined,
-      isAnonymous,
-    });
-
-    // 2. Transmit directly to Akash's personal email via FormSubmit AJAX API
+    // Dispatches via unified workflow:
+    // 1. Saves locally to storage for Admin Vault
+    // 2. Transmits directly to akashakashr505@gmail.com via FormSubmit AJAX table
+    // 3. Transmits to Google Sheets Webhook (if configured)
     try {
-      await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          _subject: `[PORTFOLIO FEEDBACK] ⭐ ${rating}/5 Stars from ${reviewerRole} (${isAnonymous ? 'Anonymous' : name || 'Visitor'})`,
-          _template: 'table',
-          _captcha: 'false',
-          'Star Rating': `${rating} / 5 Stars (${RATING_LABELS[rating] || ''})`,
-          'Feedback Category': category,
-          'Reviewer Role': reviewerRole,
-          'Feedback Comment': feedback.trim(),
-          'Reviewer Name': isAnonymous ? 'Anonymous' : name.trim() || 'Not provided',
-          'Reviewer Email': isAnonymous ? 'Hidden (Anonymous)' : email.trim() || 'Not provided',
-          'Submitted At': new Date().toLocaleString(),
-          'Owner Privacy Notice': 'This feedback is private to Akash R.',
-        }),
+      const result = await dispatchFeedbackToChannels({
+        rating,
+        category,
+        feedback: feedback.trim(),
+        reviewerRole,
+        name: isAnonymous ? 'Anonymous' : name.trim() || undefined,
+        email: isAnonymous ? undefined : email.trim() || undefined,
+        isAnonymous,
+      });
+
+      setDeliveryStatus({
+        email: result.emailDelivered,
+        sheet: result.sheetDelivered,
       });
     } catch (err) {
-      console.warn('FormSubmit network notice (saved locally as fallback):', err);
+      console.warn('Feedback dispatch pipeline notice:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      soundFx.playChime();
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'],
+      });
     }
-
-    // 3. Success reaction
-    setIsSubmitting(false);
-    setSubmitted(true);
-    soundFx.playChime();
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'],
-    });
   };
 
   return (
@@ -258,11 +243,11 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
                         FEEDBACK RECEIVED!
                       </h4>
                       <p className={`text-sm max-w-md mx-auto ${isLight ? 'text-zinc-600' : 'text-zinc-300'}`}>
-                        Thank you for taking the time to share your perspective. Your feedback has been delivered securely and privately to Akash's personal inbox.
+                        Thank you for sharing your perspective! Your review has been recorded in the feedback system and dispatched directly to Akash's inbox.
                       </p>
                     </div>
 
-                    <div className={`p-4 rounded-2xl border max-w-md mx-auto text-left text-xs font-mono-tech space-y-1.5 ${
+                    <div className={`p-4 rounded-2xl border max-w-md mx-auto text-left text-xs font-mono-tech space-y-2 ${
                       isLight ? 'bg-zinc-50 border-zinc-200 text-zinc-700' : 'bg-black/60 border-white/10 text-zinc-300'
                     }`}>
                       <div className="flex items-center justify-between">
@@ -276,8 +261,14 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
                         <span className="font-bold">{category}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-zinc-400 uppercase">Privacy:</span>
-                        <span className="font-bold text-emerald-500">100% Owner-Only</span>
+                        <span className="text-zinc-400 uppercase">Email Dispatch:</span>
+                        <span className="font-bold text-emerald-500 flex items-center gap-1">
+                          <Check className="w-3.5 h-3.5" /> {RECIPIENT_EMAIL} {deliveryStatus.sheet ? '(+ Sheet)' : ''}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-zinc-400 uppercase">Vault Record:</span>
+                        <span className="font-bold text-emerald-500">Stored &amp; Protected</span>
                       </div>
                     </div>
 

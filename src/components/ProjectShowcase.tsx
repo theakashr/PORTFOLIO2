@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Eye, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Eye, Sparkles, Workflow } from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
 import { ProjectModal, type ProjectData } from './ProjectModal';
 import { GithubIcon } from './SocialIcons';
@@ -9,6 +9,7 @@ import { useTheme } from '../context/ThemeContext';
 
 export const ProjectShowcase: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const [modalInitialTab, setModalInitialTab] = useState<'overview' | 'architecture'>('overview');
   const [activeFilter, setActiveFilter] = useState<'ALL' | 'AI' | 'FULLSTACK' | 'SPORTS_DESKTOP'>('ALL');
   const { isLight } = useTheme();
 
@@ -27,7 +28,7 @@ export const ProjectShowcase: React.FC = () => {
         'Automated clinical-grade PDF health summary report generation (@react-pdf)',
         'Secure patient assessment telemetry & historical tracking backed by Firebase'
       ],
-      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Recharts', 'Framer Motion'],
+      techStack: ['Next.js', 'React', 'JavaScript', 'Tailwind CSS', 'Firebase', 'Recharts', 'Framer Motion'],
       previewImage: '/images/projects/ai-health-predictor.svg',
       liveUrl: 'https://ai-health-predictor-theta.vercel.app/',
       githubUrl: 'https://github.com/theakashr/ai-health-predictor',
@@ -52,7 +53,7 @@ export const ProjectShowcase: React.FC = () => {
         'Teacher AI Co-Pilot with automatic lesson plan & quiz generation from PDFs',
         'Dual cloud synchronization utilizing Firebase and Supabase for real-time progress'
       ],
-      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MediaPipe Vision', 'Firebase', 'Supabase', 'Unpdf'],
+      techStack: ['Next.js', 'React', 'JavaScript', 'Tailwind CSS', 'MediaPipe Vision', 'Firebase', 'Supabase', 'Unpdf'],
       previewImage: '/images/projects/edupilot.svg',
       liveUrl: 'https://edupilot-ai-brown.vercel.app/',
       githubUrl: 'https://github.com/theakashr/edupilotAi',
@@ -77,7 +78,7 @@ export const ProjectShowcase: React.FC = () => {
         'Interactive AI Mock Interview simulator with real-time feedback & rubric scoring',
         'Multi-template PDF generation with real-time Supabase and Firebase profile sync'
       ],
-      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Gemini AI', 'Supabase', 'Firebase', 'Zod'],
+      techStack: ['Next.js', 'React', 'JavaScript', 'Tailwind CSS', 'Gemini AI', 'Supabase', 'Firebase', 'Zod'],
       previewImage: '/images/projects/resume-ai.svg',
       liveUrl: 'https://resume-app-ten-nu.vercel.app/',
       githubUrl: 'https://github.com/theakashr/Ai-Resume-Builder',
@@ -102,7 +103,7 @@ export const ProjectShowcase: React.FC = () => {
         'Multi-agency dispatch ledger (Ambulances, Boats, Aerial units)',
         'Offline-first mesh network syncing for low-connectivity zones'
       ],
-      techStack: ['React', 'TypeScript', 'Node.js', 'Leaflet', 'Google Maps API', 'WebSockets', 'Tailwind CSS'],
+      techStack: ['React', 'JavaScript', 'Node.js', 'Leaflet', 'Google Maps API', 'WebSockets', 'Tailwind CSS'],
       previewImage: '/images/projects/rescue-ai.svg',
       liveUrl: 'https://rescueai-ai.vercel.app/',
       githubUrl: 'https://github.com/FuGen-India-Private-Ltd/rescue-ai',
@@ -152,7 +153,7 @@ export const ProjectShowcase: React.FC = () => {
         'Lineguru-style live match statistics, run-rate tracker, and team scorecards',
         'Instant social sharing and match summary export for players and teams'
       ],
-      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Firebase Firestore', 'Vercel'],
+      techStack: ['Next.js', 'React', 'JavaScript', 'Tailwind CSS', 'Firebase Firestore', 'Vercel'],
       previewImage: '/images/projects/11shots.svg',
       liveUrl: 'https://gully-cricket-app-kappa.vercel.app/',
       githubUrl: 'https://github.com/theakashr/gully-cricket-app',
@@ -387,16 +388,17 @@ export const ProjectShowcase: React.FC = () => {
                     <button
                       onClick={() => {
                         soundFx.playClick();
+                        setModalInitialTab('architecture');
                         setSelectedProject(project);
                       }}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shrink-0 ${
+                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shrink-0 cursor-pointer ${
                         isLight
                           ? 'bg-white hover:bg-red-600 hover:text-white text-zinc-700 border border-zinc-200 shadow-sm'
                           : 'bg-white/10 hover:bg-yellow-400 hover:text-black text-white border border-white/20'
                       }`}
-                      title="View Project Architecture"
+                      title="Inspect System Architecture"
                     >
-                      <ArrowUpRight className="w-5 h-5" />
+                      <Workflow className="w-4 h-4" />
                     </button>
                   </div>
 
@@ -441,18 +443,37 @@ export const ProjectShowcase: React.FC = () => {
                       {project.highlights[0].label}: {project.highlights[0].value}
                     </span>
 
-                    <button
-                      onClick={() => {
-                        soundFx.playClick();
-                        setSelectedProject(project);
-                      }}
-                      className={`font-bold font-mono-tech uppercase tracking-wider transition-colors inline-flex items-center gap-1 ${
-                        isLight ? 'text-zinc-900 hover:text-red-600' : 'text-white hover:text-yellow-400'
-                      }`}
-                    >
-                      <span>EXPLORE SPECS</span>
-                      <span>&rarr;</span>
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          soundFx.playClick();
+                          setModalInitialTab('architecture');
+                          setSelectedProject(project);
+                        }}
+                        className={`font-bold font-mono-tech uppercase text-[10px] tracking-wider transition-colors inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border cursor-pointer ${
+                          isLight
+                            ? 'bg-red-50 hover:bg-red-100 text-red-700 border-red-200'
+                            : 'bg-red-950/40 hover:bg-red-900/60 text-red-300 border-red-500/30'
+                        }`}
+                        title="View interactive system architecture & data pipeline"
+                      >
+                        <Workflow className="w-3 h-3 text-red-500" />
+                        <span>PIPELINE</span>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          soundFx.playClick();
+                          setModalInitialTab('overview');
+                          setSelectedProject(project);
+                        }}
+                        className={`font-bold font-mono-tech uppercase text-[11px] tracking-wider transition-colors inline-flex items-center gap-1 cursor-pointer ${
+                          isLight ? 'text-zinc-900 hover:text-red-600' : 'text-white hover:text-yellow-400'
+                        }`}
+                      >
+                        <span>SPECS &rarr;</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -498,6 +519,7 @@ export const ProjectShowcase: React.FC = () => {
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        initialTab={modalInitialTab}
       />
     </section>
   );

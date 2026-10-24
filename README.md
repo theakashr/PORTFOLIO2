@@ -35,17 +35,27 @@ I am a Computer Science and Engineering student at **Bapuji Institute of Enginee
 - 🌗 **Dual Theme Engine (White / Black)**: Dedicated floating selector with instantaneous theme transitions and tailored contrast balancing.
 - 🎵 **Web Audio Ambient Synthesizer**: Custom synthesized click ticks, chime chords, and ambient audio with a quick mute toggle.
 - 💼 **Interactive Project Showcase**: Deep-dive modals for full-stack and AI projects featuring real-time architecture, tags, and source links.
+- 🤖 **"Ask Akash AI" — Interactive Portfolio Assistant**:
+  - Grounded conversational AI assistant answering recruiter & visitor inquiries in natural language.
+  - Covers technical skill breakdown, deep project analysis, hackathon achievements, academic trajectory, and direct contact details.
+  - Streaming character reveal, suggested quick question carousels, and responsive floating pill.
+- 📊 **Live GitHub Pulse & Telemetry Widget**:
+  - Real-time GitHub API integration pulling public repository metrics, language distribution (Python, JavaScript, C, C#), star counts, and active repositories from `@theakashr`.
+  - Built-in resilient caching ensuring uninterrupted presentation during API rate limits.
+- ⚡ **Interactive System Architecture & Data Flow Visualizer**:
+  - 4-layer distributed pipeline visualizer for featured projects (*Client Layer* ➔ *API Gateway* ➔ *AI/Logic Engine* ➔ *Cloud Persistence*).
+  - Interactive node inspection displaying inputs/outputs, schemas, tech stacks, and latency SLAs (<16ms to <180ms).
 - 🏆 **Hackathons & Verified Certifications**:
   - **Infosys Springboard**: *Introduction to Artificial Intelligence* (Course Completion) & *Artificial Intelligence Foundation Certification* (Achievement).
-  - **Credly Badges**: Google Cloud (*Create Your First Gemini Enterprise Application*) & IBM (*Python for Data Science*).
+  - **Credly Badges**: Google Cloud (*Create Your First Gemini Enterprise Application*), IBM SkillsBuild (*AI Fundamentals: Language and Vision in AI* & *AI Fundamentals: Foundations for Understanding AI*), & IBM (*Python for Data Science*).
   - **Hackering 2.0 (36-Hour National Hackathon)** at RVITM, Bengaluru (Team HACK CORE).
   - **Hack Genesis 2026 (National Hackathon)** by IEEE KLE Technological University & TCS Knowledge Partner.
   - **HackerRank Certified**: Python (Basic), Problem Solving (Basic), and C# (Basic).
   - Direct external verification links for credentials and certificate PDFs.
 - 🔒 **Private Feedback Form & Secret Owner Vault**:
   - Visitors can submit ratings (1–5 stars), reviewer roles, feedback categories, and comments.
-  - Submissions are delivered privately to `akashakashr505@gmail.com`.
-  - Portfolio owner can access an on-site, PIN-protected admin vault (`Ctrl + Shift + F`) to read reviews, filter by rating, and export to CSV.
+  - Submissions are dispatched directly to `akashakashr505@gmail.com` with formatted email tables and optionally synced to Google Sheets via webhook.
+  - Portfolio owner can access an on-site, PIN-protected admin vault (`Ctrl + Shift + F`) to read reviews, filter by rating, configure Google Sheet webhook, and export to CSV.
 
 ---
 
@@ -58,7 +68,8 @@ I am a Computer Science and Engineering student at **Bapuji Institute of Enginee
 | **Motion & FX** | Framer Motion, Canvas Confetti |
 | **Audio** | HTML5 Web Audio API Synthesizer |
 | **Icons** | Lucide React |
-| **Forms & Delivery** | FormSubmit AJAX API & Local Storage Vault |
+| **Forms & Delivery** | FormSubmit AJAX API, Google Sheets Webhook, Local Storage Vault |
+| **External APIs** | GitHub REST API v3 |
 
 ---
 

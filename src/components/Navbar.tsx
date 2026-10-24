@@ -105,6 +105,24 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Theme Switcher Toggle (White / Black) */}
           <NavbarThemeSwitcher />
 
+          {/* Ask Akash AI Quick Trigger */}
+          <button
+            onClick={() => {
+              soundFx.playClick();
+              window.dispatchEvent(new CustomEvent('open-ask-akash-ai'));
+            }}
+            aria-label="Open AI Assistant"
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${
+              isLight
+                ? 'bg-amber-50/80 hover:bg-amber-100 border-amber-300 text-amber-900 shadow-xs'
+                : 'bg-red-950/40 hover:bg-red-900/60 border-red-500/40 text-red-200'
+            }`}
+            title="Chat with Akash's Portfolio AI"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+            <span className="font-bold">ASK AI</span>
+          </button>
+
           {/* Audio Experience Toggle */}
           <button
             onClick={handleAudioToggle}
@@ -190,6 +208,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 {link.name}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={() => {
+                soundFx.playClick();
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-ask-akash-ai'));
+              }}
+              className="mt-2 flex items-center justify-center gap-2 bg-amber-500/15 border border-amber-500/40 text-amber-500 text-sm font-bold tracking-wider uppercase py-2.5 rounded-xl transition-colors cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4 text-amber-500" />
+              <span>ASK AKASH AI ASSISTANT</span>
+            </button>
             <a
               href="#contact"
               onClick={() => {

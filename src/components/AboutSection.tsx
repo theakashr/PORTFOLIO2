@@ -22,7 +22,7 @@ export const AboutSection: React.FC = () => {
     {
       icon: Code2,
       title: 'Modern Frontend Craft',
-      desc: 'Constructing reactive, accessible, high-framerate interfaces with TypeScript, React, and tailored CSS.',
+      desc: 'Constructing reactive, accessible, high-framerate interfaces with React, JavaScript, and tailored CSS.',
     },
     {
       icon: Rocket,

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, Info } from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
+import { GitHubPulseWidget } from './GitHubPulseWidget';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
 
@@ -296,6 +297,9 @@ export const SkillsSection: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Live GitHub Telemetry & Active Repositories Widget */}
+        <GitHubPulseWidget />
 
       </div>
     </section>
