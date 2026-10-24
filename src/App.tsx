@@ -7,6 +7,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { HackathonsSection } from './components/HackathonsSection';
 import { CertificationsSection } from './components/CertificationsSection';
+import { CollaborationSection } from './components/CollaborationSection';
 import { ContactSection } from './components/ContactSection';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FloatingThemeSwitcher } from './components/ThemeToggle';
@@ -20,7 +21,7 @@ function PortfolioApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['intro', 'projects', 'skills', 'hackathons', 'certifications', 'about', 'academics', 'contact'];
+      const sections = ['intro', 'projects', 'skills', 'hackathons', 'certifications', 'about', 'academics', 'collab', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sections) {
@@ -72,7 +73,10 @@ function PortfolioApp() {
         {/* SECTION 7: Academics & Engineering Education at BIET */}
         <AcademicsSection />
 
-        {/* SECTION 8: Cinematic Finale & Contact */}
+        {/* SECTION 8: Idea Collaboration Lab & Co-Creation Studio */}
+        <CollaborationSection />
+
+        {/* SECTION 9: Cinematic Finale & Contact */}
         <ContactSection />
       </main>
 

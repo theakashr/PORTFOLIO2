@@ -27,6 +27,7 @@ interface ChatMessage {
 
 const SUGGESTED_PROMPTS = [
   '🚀 What are Akash\'s top featured projects?',
+  '💡 How can I collaborate with Akash on an idea?',
   '🏆 Tell me about his hackathon achievements',
   '⚡ What is his full technical stack?',
   '📜 What verified certifications does he hold?',
@@ -224,7 +225,24 @@ export const AskAkashAIModal: React.FC = () => {
       };
     }
 
-    // 7. Contact, Hiring & Resume
+    // 7. Idea Collaboration & Teaming Up
+    if (
+      q.includes('idea') ||
+      q.includes('collab') ||
+      q.includes('collaborat') ||
+      q.includes('team') ||
+      q.includes('partner') ||
+      q.includes('build together') ||
+      q.includes('struggl') ||
+      q.includes('help me build')
+    ) {
+      return {
+        text: '💡 **Got an idea or struggling to build something?**\n\nAkash loves collaborating with ambitious students, creators, and founders! Whether you need help with:\n  • **Frontend & UI** (React & Tailwind CSS)\n  • **Core Logic & Algorithms** (Python & C)\n  • **AI & Gemini API Integration**\n  • **Full End-to-End Build & Deployment**\n\nYou can pitch your idea directly through the **Idea Collaboration Lab**!',
+        action: { label: 'Open Idea Collaboration Lab', href: '#collab' },
+      };
+    }
+
+    // 8. Contact, Hiring & Resume
     if (
       q.includes('contact') ||
       q.includes('hire') ||

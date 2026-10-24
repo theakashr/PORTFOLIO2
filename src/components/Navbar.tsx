@@ -36,6 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { name: 'CERTS', href: '#certifications' },
     { name: 'ABOUT', href: '#about' },
     { name: 'ACADEMICS', href: '#academics' },
+    { name: 'COLLAB', href: '#collab' },
     { name: 'CONTACT', href: '#contact' },
   ];
 
