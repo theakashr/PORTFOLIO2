@@ -121,6 +121,8 @@ export const CertificationsSection: React.FC = () => {
       platform: 'Credly',
       url: 'https://www.credly.com/badges/99d13e72-0d63-4184-9a65-130a1e9648f2',
       badgeImage: '/images/certificates/ibm-python-data-science-badge.png',
+      certificateImage: '/images/certificates/ibm-python-data-science-cert.jpg',
+      pdfUrl: '/certificates/ibm-python-data-science.pdf',
       accentColor: '#054ADA',
       badgeTag: 'IBM VERIFIED CREDENTIAL',
       description:
@@ -136,6 +138,8 @@ export const CertificationsSection: React.FC = () => {
       issuer: 'HackerRank',
       platform: 'HackerRank',
       url: 'https://www.hackerrank.com/certificates/96d7fb788ed7',
+      certificateImage: '/images/certificates/hackerrank-python-basic-cert.jpg',
+      pdfUrl: '/certificates/hackerrank-python-basic.pdf',
       icon: Terminal,
       accentColor: '#10B981',
       badgeTag: 'HACKERRANK SKILL CERTIFICATE',
@@ -150,6 +154,8 @@ export const CertificationsSection: React.FC = () => {
       issuer: 'HackerRank',
       platform: 'HackerRank',
       url: 'https://www.hackerrank.com/certificates/f2eaec45adec',
+      certificateImage: '/images/certificates/hackerrank-problem-solving-basic-cert.jpg',
+      pdfUrl: '/certificates/hackerrank-problem-solving-basic.pdf',
       icon: Cpu,
       accentColor: '#3B82F6',
       badgeTag: 'HACKERRANK SKILL CERTIFICATE',
@@ -164,6 +170,8 @@ export const CertificationsSection: React.FC = () => {
       issuer: 'HackerRank',
       platform: 'HackerRank',
       url: 'https://www.hackerrank.com/certificates/bfff4fc88bf8',
+      certificateImage: '/images/certificates/hackerrank-c-sharp-basic-cert.jpg',
+      pdfUrl: '/certificates/hackerrank-c-sharp-basic.pdf',
       icon: Code2,
       accentColor: '#8B5CF6',
       badgeTag: 'HACKERRANK SKILL CERTIFICATE',
@@ -410,6 +418,8 @@ export const CertificationsSection: React.FC = () => {
                             ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-600/30'
                             : isInfosys
                             ? 'bg-[#0070AD] hover:bg-[#005a8c] shadow-sky-900/20'
+                            : item.type === 'HACKERRANK'
+                            ? 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/30'
                             : 'bg-red-600 hover:bg-red-500 shadow-red-600/30'
                         }`}
                       >
@@ -468,7 +478,7 @@ export const CertificationsSection: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className={`relative max-w-4xl w-full max-h-[92vh] overflow-hidden rounded-3xl border-[2.5px] p-5 sm:p-6 shadow-2xl flex flex-col ${
+              className={`relative z-10 max-w-4xl w-full max-h-[92vh] max-h-[92dvh] overflow-y-auto rounded-3xl border-[2.5px] p-4 sm:p-6 shadow-2xl flex flex-col ${
                 isLight ? 'bg-white border-zinc-300 text-zinc-900' : 'bg-[#0a0a0f] border-white/20 text-white'
               }`}
               onClick={(e) => e.stopPropagation()}
@@ -511,6 +521,8 @@ export const CertificationsSection: React.FC = () => {
                   <span>
                     {previewCert.verifyUrl.includes('wingspan')
                       ? 'Scan QR on certificate or verify at verify.onwingspan.com'
+                      : previewCert.verifyUrl.includes('hackerrank')
+                      ? 'Official skill certificate verified on HackerRank'
                       : 'Authentic digital credential verified on Credly platform'}
                   </span>
                 </div>
@@ -535,11 +547,20 @@ export const CertificationsSection: React.FC = () => {
                     className={`px-4 py-2.5 rounded-xl text-xs font-impact uppercase tracking-wider text-white flex items-center gap-1.5 transition-colors cursor-pointer shadow-lg ${
                       previewCert.verifyUrl.includes('credly')
                         ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-600/30'
+                        : previewCert.verifyUrl.includes('hackerrank')
+                        ? 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/30'
                         : 'bg-[#0070AD] hover:bg-[#005a8c] shadow-sky-900/30'
                     }`}
                   >
                     <ShieldCheck className="w-4 h-4" />
-                    <span>VERIFY ON {previewCert.verifyUrl.includes('credly') ? 'CREDLY' : 'WINGSPAN'}</span>
+                    <span>
+                      VERIFY ON{' '}
+                      {previewCert.verifyUrl.includes('credly')
+                        ? 'CREDLY'
+                        : previewCert.verifyUrl.includes('hackerrank')
+                        ? 'HACKERRANK'
+                        : 'WINGSPAN'}
+                    </span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
