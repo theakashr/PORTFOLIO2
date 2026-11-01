@@ -1,12 +1,31 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Trophy, Calendar, MapPin, ExternalLink, Award, Users, Flame, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Trophy,
+  Calendar,
+  MapPin,
+  ExternalLink,
+  Award,
+  Users,
+  Flame,
+  CheckCircle2,
+  Bot,
+  Eye,
+  X,
+} from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
 
 export const HackathonsSection: React.FC = () => {
   const { isLight } = useTheme();
+  const [previewCert, setPreviewCert] = useState<{
+    title: string;
+    image: string;
+    externalUrl?: string;
+    issuer: string;
+    rankBadge?: string;
+  } | null>(null);
 
   const otherHackathons = [
     {
@@ -72,10 +91,172 @@ export const HackathonsSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Featured National Hackathons Grid (Hackering 2.0 & Hack Genesis 2026) */}
+        {/* Featured National & Global Hackathons Grid */}
         <div className="space-y-10 mb-12">
           
-          {/* Card 1: Hackering 2.0 */}
+          {/* Card 1: HackerRank Orchestrate (Global AI Agent Hackathon) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className={`max-w-5xl mx-auto rounded-3xl border-[2.5px] p-6 sm:p-9 shadow-2xl relative overflow-hidden transition-all ${
+              isLight
+                ? 'bg-gradient-to-br from-white via-zinc-50 to-emerald-50/30 border-emerald-300 shadow-zinc-300/60'
+                : 'bg-gradient-to-br from-black via-zinc-950 to-emerald-950/30 border-emerald-500/50 shadow-2xl'
+            }`}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Hackathon Details */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-mono-tech font-bold uppercase tracking-wider shadow-sm shadow-emerald-600/30">
+                    <Flame className="w-3.5 h-3.5" /> GLOBAL AI AGENT HACKATHON
+                  </span>
+                  <span className="text-xs font-mono-tech text-emerald-600 dark:text-emerald-400 font-bold uppercase flex items-center gap-1 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                    <Trophy className="w-3.5 h-3.5 text-emerald-500" /> FINAL RANK #1391 / 4,094
+                  </span>
+                  <span className="text-xs font-mono-tech text-amber-500 font-bold uppercase flex items-center gap-1">
+                    <Award className="w-3.5 h-3.5" /> VERIFIED BY HACKERRANK
+                  </span>
+                </div>
+
+                <h3 className={`font-impact text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide leading-none ${
+                  isLight ? 'text-zinc-900' : 'text-white'
+                }`}>
+                  HACKERRANK ORCHESTRATE
+                </h3>
+
+                <div className="space-y-1">
+                  <div className={`flex items-center gap-2 text-xs sm:text-sm font-semibold ${
+                    isLight ? 'text-emerald-800' : 'text-emerald-300'
+                  }`}>
+                    <Bot className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>HackerRank Global Virtual Hackathon &bull; International Edition</span>
+                  </div>
+                  <div className={`flex flex-wrap items-center gap-3 text-xs font-mono-tech ${
+                    isLight ? 'text-zinc-500' : 'text-zinc-400'
+                  }`}>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                      October 2026 Edition
+                    </span>
+                    <span>&bull;</span>
+                    <span className="flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400">
+                      <Users className="w-3.5 h-3.5" />
+                      4,094 Global Participants
+                    </span>
+                  </div>
+                </div>
+
+                <p className={`text-sm leading-relaxed ${
+                  isLight ? 'text-zinc-700' : 'text-zinc-300'
+                }`}>
+                  Participated in the October 2026 edition of <strong>HackerRank's Orchestrate</strong> by architecting, building, and deploying an autonomous AI agent. Competed against 4,094 software engineers, data scientists, and AI builders worldwide to achieve a verified final rank of <strong>#1391</strong>.
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {['AI Agents', 'Agentic Workflows', 'Autonomous Systems', 'Prompt Engineering', 'HackerRank Orchestrate', 'Final Rank #1391', 'Global Hackathon'].map((tag, i) => (
+                    <span
+                      key={i}
+                      className={`inline-flex items-center gap-1 text-[11px] font-mono-tech px-2.5 py-1 rounded-lg ${
+                        isLight
+                          ? 'bg-zinc-100 border border-zinc-200 text-zinc-800'
+                          : 'bg-zinc-900 border border-white/10 text-zinc-300'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundFx.playClick();
+                      setPreviewCert({
+                        title: "HackerRank Orchestrate Certificate of Achievement",
+                        image: "/images/certificates/hackerrank-orchestrate-cert.png",
+                        externalUrl: "/images/certificates/hackerrank-orchestrate-cert.png",
+                        issuer: "HackerRank",
+                        rankBadge: "Final Rank #1391 / 4,094 Global Participants",
+                      });
+                    }}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-emerald-900/40 transition-all hover:scale-105 cursor-pointer"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>VIEW ORCHESTRATE CERTIFICATE</span>
+                    <Eye className="w-3.5 h-3.5 opacity-80" />
+                  </button>
+
+                  <a
+                    href="/images/certificates/hackerrank-orchestrate-cert.png"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => soundFx.playClick()}
+                    className={`inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl text-xs font-mono-tech font-bold uppercase tracking-wider border transition-colors ${
+                      isLight
+                        ? 'bg-white hover:bg-zinc-100 border-zinc-300 text-zinc-800'
+                        : 'bg-white/10 hover:bg-white/20 border-white/20 text-white'
+                    }`}
+                  >
+                    <span>FULL-RES</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Certificate Preview Card */}
+              <div className="lg:col-span-5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFx.playClick();
+                    setPreviewCert({
+                      title: "HackerRank Orchestrate Certificate of Achievement",
+                      image: "/images/certificates/hackerrank-orchestrate-cert.png",
+                      externalUrl: "/images/certificates/hackerrank-orchestrate-cert.png",
+                      issuer: "HackerRank",
+                      rankBadge: "Final Rank #1391 / 4,094 Global Participants",
+                    });
+                  }}
+                  className={`w-full text-left block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
+                    isLight ? 'border-emerald-300 shadow-zinc-300' : 'border-emerald-500/40 shadow-black'
+                  }`}
+                  title="Click to zoom certificate"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/80">
+                    <img
+                      src="/images/certificates/hackerrank-orchestrate-cert.png"
+                      alt="HackerRank Orchestrate Certificate of Achievement - Akash R"
+                      className="w-full h-full object-contain p-1 transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-4">
+                      <div className="text-white">
+                        <span className="text-[10px] font-mono-tech uppercase font-bold tracking-wider text-emerald-400 block">
+                          CERTIFICATE OF ACHIEVEMENT
+                        </span>
+                        <span className="font-impact text-lg uppercase block leading-none">
+                          HACKERRANK ORCHESTRATE &bull; RANK #1391
+                        </span>
+                        <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
+                          Click to expand certificate in high-res &rarr;
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+            </div>
+          </motion.div>
+
+          {/* Card 2: Hackering 2.0 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,32 +333,61 @@ export const HackathonsSection: React.FC = () => {
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundFx.playClick();
+                      setPreviewCert({
+                        title: "Hackering 2.0 Certificate of Participation",
+                        image: "/images/certificates/hackering-2.0.jpg",
+                        externalUrl: "https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing",
+                        issuer: "RVITM Bengaluru",
+                        rankBadge: "National Final Round Participant",
+                      });
+                    }}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-900/40 transition-all hover:scale-105 cursor-pointer"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>VIEW HACKERING 2.0 CERTIFICATE</span>
+                    <Eye className="w-3.5 h-3.5 opacity-80" />
+                  </button>
+
                   <a
                     href="https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => soundFx.playClick()}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-900/40 transition-all hover:scale-105"
+                    className={`inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl text-xs font-mono-tech font-bold uppercase tracking-wider border transition-colors ${
+                      isLight
+                        ? 'bg-white hover:bg-zinc-100 border-zinc-300 text-zinc-800'
+                        : 'bg-white/10 hover:bg-white/20 border-white/20 text-white'
+                    }`}
                   >
-                    <Award className="w-4 h-4" />
-                    <span>VIEW HACKERING 2.0 CERTIFICATE</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                    <span>GOOGLE DRIVE</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
 
               {/* Right Column: Certificate Preview Card */}
               <div className="lg:col-span-5">
-                <a
-                  href="https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => soundFx.playClick()}
-                  className={`block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] ${
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFx.playClick();
+                    setPreviewCert({
+                      title: "Hackering 2.0 Certificate of Participation",
+                      image: "/images/certificates/hackering-2.0.jpg",
+                      externalUrl: "https://drive.google.com/file/d/16lsvFiNwuyKM6luev1DgETdYcQCmRNXt/view?usp=sharing",
+                      issuer: "RVITM Bengaluru",
+                      rankBadge: "National Final Round Participant",
+                    });
+                  }}
+                  className={`w-full text-left block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
                     isLight ? 'border-zinc-200 shadow-zinc-300' : 'border-white/20 shadow-black'
                   }`}
-                  title="Click to view full certificate on Google Drive"
+                  title="Click to view certificate"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
                     <img
@@ -194,18 +404,18 @@ export const HackathonsSection: React.FC = () => {
                           HACKERING 2.0 &bull; RVITM
                         </span>
                         <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
-                          Open high-res PDF on Google Drive &rarr;
+                          Click to expand certificate &rarr;
                         </span>
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               </div>
 
             </div>
           </motion.div>
 
-          {/* Card 2: Hack Genesis 2026 */}
+          {/* Card 3: Hack Genesis 2026 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -281,32 +491,61 @@ export const HackathonsSection: React.FC = () => {
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundFx.playClick();
+                      setPreviewCert({
+                        title: "Hack Genesis 2026 Certificate of Participation",
+                        image: "/images/certificates/hack-genesis-2026.jpg",
+                        externalUrl: "https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing",
+                        issuer: "IEEE KLE Tech & TCS",
+                        rankBadge: "National Level Hackathon Participant",
+                      });
+                    }}
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-blue-900/40 transition-all hover:scale-105 cursor-pointer"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>VIEW HACK GENESIS 2026 CERTIFICATE</span>
+                    <Eye className="w-3.5 h-3.5 opacity-80" />
+                  </button>
+
                   <a
                     href="https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => soundFx.playClick()}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-impact text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-blue-900/40 transition-all hover:scale-105"
+                    className={`inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl text-xs font-mono-tech font-bold uppercase tracking-wider border transition-colors ${
+                      isLight
+                        ? 'bg-white hover:bg-zinc-100 border-zinc-300 text-zinc-800'
+                        : 'bg-white/10 hover:bg-white/20 border-white/20 text-white'
+                    }`}
                   >
-                    <Award className="w-4 h-4" />
-                    <span>VIEW HACK GENESIS 2026 CERTIFICATE</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                    <span>GOOGLE DRIVE</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
 
               {/* Right Column: Certificate Preview Card */}
               <div className="lg:col-span-5">
-                <a
-                  href="https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => soundFx.playClick()}
-                  className={`block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] ${
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFx.playClick();
+                    setPreviewCert({
+                      title: "Hack Genesis 2026 Certificate of Participation",
+                      image: "/images/certificates/hack-genesis-2026.jpg",
+                      externalUrl: "https://drive.google.com/file/d/1lh-Tn3fe_PzqHunFnGU-C4WVO4wq_F-b/view?usp=sharing",
+                      issuer: "IEEE KLE Tech & TCS",
+                      rankBadge: "National Level Hackathon Participant",
+                    });
+                  }}
+                  className={`w-full text-left block group relative rounded-2xl border-2 overflow-hidden shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
                     isLight ? 'border-zinc-200 shadow-zinc-300' : 'border-white/20 shadow-black'
                   }`}
-                  title="Click to view full certificate on Google Drive"
+                  title="Click to view certificate"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
                     <img
@@ -323,12 +562,12 @@ export const HackathonsSection: React.FC = () => {
                           HACK GENESIS 2026 &bull; IEEE KLE TECH
                         </span>
                         <span className="text-[10px] font-mono-tech text-zinc-300 underline mt-1 inline-flex items-center gap-1">
-                          Open high-res PDF on Google Drive &rarr;
+                          Click to expand certificate &rarr;
                         </span>
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               </div>
 
             </div>
@@ -396,6 +635,113 @@ export const HackathonsSection: React.FC = () => {
         </div>
 
       </div>
+
+      {/* High-Resolution Certificate Zoom Lightbox Modal */}
+      <AnimatePresence>
+        {previewCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPreviewCert(null)}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className={`relative max-w-4xl w-full max-h-[92vh] rounded-3xl overflow-hidden border-2 shadow-2xl flex flex-col ${
+                isLight ? 'bg-white border-zinc-200 text-zinc-900' : 'bg-zinc-950 border-white/20 text-white'
+              }`}
+            >
+              {/* Modal Header */}
+              <div
+                className={`p-4 sm:p-5 flex items-center justify-between border-b ${
+                  isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-black/60 border-white/10'
+                }`}
+              >
+                <div>
+                  <span className="text-[10px] sm:text-xs font-mono-tech uppercase font-bold text-red-600 dark:text-red-400 block">
+                    {previewCert.issuer} &bull; OFFICIAL HACKATHON CERTIFICATE
+                  </span>
+                  <h3 className="font-impact text-lg sm:text-2xl uppercase tracking-wide leading-tight mt-0.5">
+                    {previewCert.title}
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundFx.playClick();
+                    setPreviewCert(null);
+                  }}
+                  className={`p-2 rounded-xl border transition-colors cursor-pointer ${
+                    isLight
+                      ? 'bg-zinc-100 hover:bg-zinc-200 border-zinc-300 text-zinc-700'
+                      : 'bg-white/10 hover:bg-white/20 border-white/20 text-white'
+                  }`}
+                  aria-label="Close certificate preview"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Body / Certificate Preview */}
+              <div className="p-3 sm:p-6 overflow-y-auto max-h-[70vh] flex items-center justify-center bg-black/50">
+                <img
+                  src={previewCert.image}
+                  alt={previewCert.title}
+                  className="max-h-[64vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-white/10"
+                />
+              </div>
+
+              {/* Modal Footer */}
+              <div
+                className={`p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-t ${
+                  isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-black/60 border-white/10'
+                }`}
+              >
+                <div className="flex items-center gap-2 text-xs font-mono-tech">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className={isLight ? 'text-zinc-600 font-semibold' : 'text-zinc-300'}>
+                    {previewCert.rankBadge || 'Verified Competitive Hackathon Credential'}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {previewCert.externalUrl && (
+                    <a
+                      href={previewCert.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => soundFx.playClick()}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-mono-tech font-bold uppercase tracking-wider transition-all shadow-md shadow-red-600/30"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>OPEN FULL-RES / DRIVE</span>
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundFx.playClick();
+                      setPreviewCert(null);
+                    }}
+                    className={`px-4 py-2 rounded-xl text-xs font-mono-tech uppercase font-bold tracking-wider border transition-colors cursor-pointer ${
+                      isLight
+                        ? 'bg-zinc-100 hover:bg-zinc-200 border-zinc-300 text-zinc-800'
+                        : 'bg-white/10 hover:bg-white/20 border-white/20 text-white'
+                    }`}
+                  >
+                    CLOSE
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

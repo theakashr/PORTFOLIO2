@@ -109,7 +109,7 @@ export const AskAkashAIModal: React.FC = () => {
       q.includes('introduce')
     ) {
       return {
-        text: '👨‍💻 **Akash R** is a passionate software engineer and 2nd-year Computer Science & Engineering student at **Bapuji Institute of Engineering and Technology (BIET), Davanagere**.\n\nHe specializes in:\n• **Modern Full-Stack Engineering**: React 19, JavaScript, Next.js, Tailwind CSS, Vite\n• **Applied AI & Cognitive Systems**: Google Gemini API, MediaPipe Vision, intelligent agents\n• **Core Systems & Algorithms**: Python, C, C#, Data Structures, Object-Oriented Design\n• **Competitive Prototyping**: Active national hackathon competitor (Hackering 2.0 at RVITM & Hack Genesis)\n\nHe has shipped 6+ complete production web/desktop applications and holds credentials from Google Cloud, IBM, and HackerRank.',
+        text: '👨‍💻 **Akash R** is a passionate software engineer and 2nd-year Computer Science & Engineering student at **Bapuji Institute of Engineering and Technology (BIET), Davanagere**.\n\nHe specializes in:\n• **Modern Full-Stack Engineering**: React 19, JavaScript, Next.js, Tailwind CSS, Vite\n• **Applied AI & Cognitive Systems**: Google Gemini API, MediaPipe Vision, intelligent agents\n• **Core Systems & Algorithms**: Python, C, C#, Data Structures, Object-Oriented Design\n• **Competitive Prototyping**: Active national & global hackathon competitor (HackerRank Orchestrate, Hackering 2.0 at RVITM & Hack Genesis)\n\nHe has shipped 6+ complete production web/desktop applications and holds credentials from Google Cloud, IBM, and HackerRank.',
         action: { label: 'Explore Akash\'s Story', href: '#about' },
       };
     }
@@ -161,9 +161,18 @@ export const AskAkashAIModal: React.FC = () => {
     }
 
     // 3. Hackathons & Competitions
-    if (q.includes('hackathon') || q.includes('hack') || q.includes('competition') || q.includes('award') || q.includes('hackering') || q.includes('rvitm') || q.includes('genesis')) {
+    if (
+      q.includes('hackathon') ||
+      q.includes('hack') ||
+      q.includes('competition') ||
+      q.includes('award') ||
+      q.includes('hackering') ||
+      q.includes('rvitm') ||
+      q.includes('genesis') ||
+      q.includes('orchestrate')
+    ) {
       return {
-        text: '🏆 Akash is an active competitive hackathon engineer:\n\n1. **Hackering 2.0 (36-Hour National Hackathon)**: Held at RVITM, Bengaluru. Akash competed in Team **HACK CORE**, building high-speed resilient software through a grueling 36-hour sprint.\n2. **Hack Genesis 2026 (National Hackathon)**: Organized by IEEE KLE Technological University with TCS as knowledge partner, creating innovative engineering solutions.\n\nHe holds official verified certificates of participation and achievement for both!',
+        text: '🏆 Akash is an active competitive hackathon engineer:\n\n1. **HackerRank Orchestrate (Global AI Agent Hackathon)**: Competed in the October 2026 edition by architecting and deploying an autonomous AI agent, achieving **Final Rank #1391 out of 4,094** global developers.\n2. **Hackering 2.0 (36-Hour National Hackathon)**: Held at RVITM, Bengaluru. Akash competed in Team **HACK CORE**, building high-speed resilient software through a grueling 36-hour sprint.\n3. **Hack Genesis 2026 (National Hackathon)**: Organized by IEEE KLE Technological University with TCS as knowledge partner, creating innovative engineering solutions.\n\nHe holds official verified certificates for all of them!',
         action: { label: 'View Hackathons Section', href: '#hackathons' },
       };
     }

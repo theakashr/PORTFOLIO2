@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, ShieldCheck, CheckCircle2, Terminal, Code2, Cpu, Eye, FileText, X, Sparkles } from 'lucide-react';
+import { Award, ExternalLink, ShieldCheck, CheckCircle2, Terminal, Code2, Cpu, Eye, FileText, X, Sparkles, Bot } from 'lucide-react';
 import { DiagonalStreaks } from './DiagonalStreaks';
 import { soundFx } from '../utils/audio';
 import { useTheme } from '../context/ThemeContext';
@@ -132,6 +132,21 @@ export const CertificationsSection: React.FC = () => {
     },
 
     // HackerRank Certificates
+    {
+      id: 'hackerrank-orchestrate-2026',
+      type: 'HACKERRANK',
+      title: 'HackerRank Orchestrate: AI Agent Hackathon',
+      issuer: 'HackerRank',
+      platform: 'HackerRank',
+      url: '/images/certificates/hackerrank-orchestrate-cert.png',
+      certificateImage: '/images/certificates/hackerrank-orchestrate-cert.png',
+      icon: Bot,
+      accentColor: '#10B981',
+      badgeTag: 'GLOBAL AI AGENT HACKATHON &bull; RANK #1391',
+      description:
+        'Awarded Certificate of Achievement for competing in the October 2026 edition of HackerRank Orchestrate by architecting, building, and deploying an autonomous AI agent. Achieved verified Final Rank #1391 out of 4,094 global developers.',
+      skills: ['AI Agents', 'Agentic Workflows', 'Autonomous Systems', 'HackerRank Orchestrate', 'Prompt Engineering', 'Python', 'Final Rank #1391 / 4094'],
+    },
     {
       id: '96d7fb788ed7',
       type: 'HACKERRANK',
@@ -559,12 +574,15 @@ export const CertificationsSection: React.FC = () => {
                   >
                     <ShieldCheck className="w-4 h-4" />
                     <span>
-                      VERIFY ON{' '}
-                      {previewCert.verifyUrl.includes('credly')
-                        ? 'CREDLY'
-                        : previewCert.verifyUrl.includes('hackerrank')
-                        ? 'HACKERRANK'
-                        : 'WINGSPAN'}
+                      {previewCert.verifyUrl.startsWith('/images')
+                        ? 'VIEW HIGH-RES IMAGE'
+                        : `VERIFY ON ${
+                            previewCert.verifyUrl.includes('credly')
+                              ? 'CREDLY'
+                              : previewCert.verifyUrl.includes('hackerrank')
+                              ? 'HACKERRANK'
+                              : 'WINGSPAN'
+                          }`}
                     </span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
